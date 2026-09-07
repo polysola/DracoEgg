@@ -342,27 +342,49 @@ export const saveUserScoreImmediate = async (
 
 export const WHITELIST_COLLECTION = "ArcDracoWhitelist";
 
-export const saveWhitelistWallet = async (
-    walletAddress: string,
-    username?: string
+export interface WhitelistSubmissionData {
+    walletAddress: string;
+    xAccount: string;
+    retweetLink: string;
+    username?: string;
+}
+
+export const saveWhitelistSubmission = async (
+    data: WhitelistSubmissionData
 ): Promise<boolean> => {
     try {
-        const cleanAddress = walletAddress.toLowerCase().trim();
+        const cleanAddress = data.walletAddress.toLowerCase().trim();
+        const cleanX = data.xAccount.trim();
+        const cleanRetweet = data.retweetLink.trim();
         const whitelistRef = doc(db, WHITELIST_COLLECTION, cleanAddress);
         await setDoc(whitelistRef, {
             walletAddress: cleanAddress,
-            originalAddress: walletAddress.trim(),
-            username: username || "anonymous",
+            originalAddress: data.walletAddress.trim(),
+            xAccount: cleanX,
+            retweetLink: cleanRetweet,
+            username: data.username || "anonymous",
             network: "ARC",
             createdAt: new Date().toISOString(),
             status: "whitelisted"
         }, { merge: true });
-        console.log(`Saved whitelist wallet ${walletAddress} to Firestore`);
+        console.log(`Saved whitelist submission for ${cleanAddress}, X: ${cleanX}, Retweet: ${cleanRetweet} to Firestore`);
         return true;
     } catch (error) {
-        console.error("Error saving whitelist wallet to Firestore:", error);
+        console.error("Error saving whitelist submission to Firestore:", error);
         return false;
     }
+};
+
+export const saveWhitelistWallet = async (
+    walletAddress: string,
+    username?: string
+): Promise<boolean> => {
+    return saveWhitelistSubmission({
+        walletAddress,
+        xAccount: "N/A",
+        retweetLink: "N/A",
+        username
+    });
 };
 
 export const saveUserWallet = async (

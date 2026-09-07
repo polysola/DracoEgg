@@ -29,6 +29,7 @@ import {
 } from "./services/userService";
 import Leaderboard from "./components/Leaderboard";
 import Referral from "./components/Referral";
+import WhitelistPage from "./components/WhitelistPage";
 import { useReferral } from "./hooks/useReferral";
 
 // Modals Import
@@ -201,7 +202,7 @@ const App: React.FC = () => {
   const [saveTimeout, setSaveTimeout] = useState<NodeJS.Timeout | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [leaderboard, setLeaderboard] = useState<LeaderboardUser[]>([]);
-  const [activeTab, setActiveTab] = useState<"main" | "leaderboard" | "referral">("main");
+  const [activeTab, setActiveTab] = useState<"main" | "leaderboard" | "referral" | "whitelist">("main");
 
   const {
     referrals,
@@ -291,7 +292,7 @@ const App: React.FC = () => {
     }
   };
 
-  const handleTabChange = (tab: "main" | "leaderboard" | "referral") => {
+  const handleTabChange = (tab: "main" | "leaderboard" | "referral" | "whitelist") => {
     setActiveTab(tab);
     if (tab === "leaderboard") {
       fetchLeaderboard();
@@ -613,6 +614,16 @@ const App: React.FC = () => {
 
         {/* Right Side: Wallet Button & Action Icons (Bell, X, Telegram, Settings) */}
         <div className="flex items-center space-x-1 shrink-0">
+          {/* Whitelist Quick Access Button */}
+          <button
+            onClick={() => handleTabChange("whitelist")}
+            className="flex items-center space-x-1 px-2 py-1 sm:px-2.5 sm:py-1.5 rounded-xl bg-gradient-to-r from-[#8b5cf6]/20 to-[#00d2ff]/20 hover:from-[#8b5cf6]/35 hover:to-[#00d2ff]/35 border border-[#8b5cf6]/60 shadow-[0_0_10px_rgba(139,92,246,0.3)] transition-all text-[10px] sm:text-xs text-[#00d2ff] font-bold shrink-0"
+            title="Genesis Whitelist Registration"
+          >
+            <span>🎟️</span>
+            <span className="hidden sm:inline font-orbitron">WL</span>
+          </button>
+
           {/* Wallet Button */}
           <button
             onClick={() => setActiveModal("wallet")}
@@ -749,6 +760,10 @@ const App: React.FC = () => {
         isOpen={isLaunchModalOpen}
         onClose={() => setIsLaunchModalOpen(false)}
         username={user?.username}
+        onNavigateToWhitelist={() => {
+          setIsLaunchModalOpen(false);
+          handleTabChange("whitelist");
+        }}
       />
 
       {/* Real-time Notifications Center Modal */}
@@ -758,7 +773,10 @@ const App: React.FC = () => {
         notifications={notifications.map((n) => ({
           ...n,
           onAction: () => {
-            if (n.type === "launch") setIsLaunchModalOpen(true);
+            if (n.type === "launch") {
+              setActiveModal(null);
+              handleTabChange("whitelist");
+            }
             else if (n.type === "bot") setActiveModal("autobot");
             else if (n.type === "reward") setActiveModal("reward");
             else if (n.type === "cipher") setActiveModal("cipher");
@@ -846,7 +864,15 @@ const App: React.FC = () => {
         </div>
       ) : (
         <div className="w-full text-[#f0eeff] h-screen max-h-screen font-bold flex flex-col justify-between max-w-md mx-auto relative z-10 overflow-hidden p-3 pb-24">
-          {activeTab === "main" ? (
+          {activeTab === "whitelist" ? (
+            <div className="flex-1 flex flex-col overflow-y-auto">
+              <WhitelistPage
+                onBack={() => handleTabChange("main")}
+                currentUser={user?.username}
+                currentWalletAddress={walletAddress}
+              />
+            </div>
+          ) : activeTab === "main" ? (
             <div className="flex-1 flex flex-col justify-between overflow-y-auto space-y-3">
 
               {/* TẦNG 1: TOP HUD & ETH BALANCE CARD */}

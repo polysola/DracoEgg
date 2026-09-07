@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from "react";
-import { toast } from "react-toastify";
 import XIcon from "../../icons/XIcon";
 import TelegramIcon from "../../icons/TelegramIcon";
-import { saveWhitelistWallet } from "../../services/userService";
 
 interface TokenLaunchModalProps {
   isOpen: boolean;
   onClose: () => void;
   username?: string;
+  onNavigateToWhitelist?: () => void;
 }
 
-const TokenLaunchModal: React.FC<TokenLaunchModalProps> = ({ isOpen, onClose, username }) => {
+const TokenLaunchModal: React.FC<TokenLaunchModalProps> = ({ 
+  isOpen, 
+  onClose, 
+  onNavigateToWhitelist 
+}) => {
   const [timeLeft, setTimeLeft] = useState<{
     days: number;
     hours: number;
@@ -18,22 +21,9 @@ const TokenLaunchModal: React.FC<TokenLaunchModalProps> = ({ isOpen, onClose, us
     seconds: number;
   }>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
-  const [walletInput, setWalletInput] = useState<string>("");
-  const [whitelistedWallet, setWhitelistedWallet] = useState<string>("");
-  const [isEditingWallet, setIsEditingWallet] = useState<boolean>(false);
-
   const X_LINK = "https://x.com/ArcDracoEgg";
   const TELEGRAM_LINK = "https://t.me/ArcDraco_Portal";
   const MAINNET_DATE_STRING = "September 16, 2026 - 00:00 UTC";
-
-  // Load saved whitelisted wallet from localStorage
-  useEffect(() => {
-    const saved = localStorage.getItem("arcdraco_whitelist_wallet");
-    if (saved) {
-      setWhitelistedWallet(saved);
-      setWalletInput(saved);
-    }
-  }, [isOpen]);
 
   // Countdown timer to ARC Network Mainnet (September 16, 2026 UTC)
   useEffect(() => {
@@ -65,42 +55,6 @@ const TokenLaunchModal: React.FC<TokenLaunchModalProps> = ({ isOpen, onClose, us
   }, [isOpen]);
 
   if (!isOpen) return null;
-
-  const handleWalletInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setWalletInput(e.target.value);
-  };
-
-  const handleJoinWhitelist = (e: React.FormEvent) => {
-    e.preventDefault();
-    const trimmed = walletInput.trim();
-
-    // Validate EVM format: starts with 0x and is 42 characters long hex
-    const evmRegex = /^0x[a-fA-F0-9]{40}$/;
-    if (!trimmed) {
-      toast.error("Please paste your EVM wallet address.");
-      return;
-    }
-
-    if (!evmRegex.test(trimmed)) {
-      toast.error("Invalid EVM wallet address! Must start with 0x and be 42 characters.");
-      return;
-    }
-
-    localStorage.setItem("arcdraco_whitelist_wallet", trimmed);
-    setWhitelistedWallet(trimmed);
-    setIsEditingWallet(false);
-    // Save to Firebase Firestore
-    saveWhitelistWallet(trimmed, username);
-    toast.success("🎉 You're whitelisted for ArcDraco Mainnet & OpenSea NFT mint!");
-  };
-
-  const handleEditWallet = () => {
-    setIsEditingWallet(true);
-  };
-
-  const truncatedWhitelisted = whitelistedWallet
-    ? `${whitelistedWallet.substring(0, 8)}...${whitelistedWallet.substring(whitelistedWallet.length - 6)}`
-    : "";
 
   return (
     <div className="fixed inset-0 z-[120] flex items-center justify-center p-3 bg-black/90 backdrop-blur-md animate-fade-in font-orbitron">
@@ -194,68 +148,35 @@ const TokenLaunchModal: React.FC<TokenLaunchModalProps> = ({ isOpen, onClose, us
           </p>
         </div>
 
-        {/* WHITELIST FORM: PASTE EVM WALLET ADDRESS */}
-        <div className="bg-[#100b2b] p-4 rounded-2xl border-2 border-[#00d2ff]/50 mb-3.5 shadow-[0_0_25px_rgba(0,210,255,0.2)]">
-          <div className="flex items-center justify-between mb-2">
+        {/* PRIMARY CALL TO ACTION: LINK TO DEDICATED WHITELIST REGISTRATION PAGE */}
+        <div className="bg-[#100b2b] p-4 rounded-2xl border-2 border-[#00d2ff]/60 mb-3.5 shadow-[0_0_25px_rgba(0,210,255,0.25)] text-center space-y-2.5">
+          <div className="flex items-center justify-between">
             <p className="text-xs font-black text-[#00d2ff] uppercase tracking-wider flex items-center space-x-1.5">
               <span>🎟️</span>
-              <span>EARLY ACCESS WHITELIST</span>
+              <span>EARLY ACCESS WHITELIST PORTAL</span>
             </p>
             <span className="text-[8px] font-bold px-2 py-0.5 rounded-full bg-[#00d2ff]/20 text-[#00d2ff] uppercase border border-[#00d2ff]/40">
               GUARANTEED
             </span>
           </div>
 
-          <p className="text-[10px] text-gray-300 font-sans mb-3 leading-tight">
-            Paste your EVM wallet address (0x...) below to secure your whitelist spot for token airdrop and OpenSea Free Mint.
+          <p className="text-[10px] sm:text-[11px] text-gray-300 font-sans leading-relaxed">
+            Click below to open the dedicated registration page to submit your <span className="text-[#00d2ff] font-bold">X Account</span>, <span className="text-[#c084fc] font-bold">EVM Wallet</span>, and <span className="text-[#ffe600] font-bold">Retweet Proof</span>!
           </p>
 
-          {whitelistedWallet && !isEditingWallet ? (
-            <div className="space-y-2.5">
-              <div className="p-3 rounded-xl bg-[#00d2ff]/10 border border-[#00d2ff]/40 flex items-center justify-between">
-                <div className="flex items-center space-x-2 min-w-0">
-                  <span className="text-sm">✅</span>
-                  <div>
-                    <span className="text-[9px] text-[#00d2ff] font-black uppercase tracking-wider block">
-                      WHITELISTED WALLET
-                    </span>
-                    <span className="font-mono text-xs sm:text-sm text-white font-black truncate block">
-                      {truncatedWhitelisted}
-                    </span>
-                  </div>
-                </div>
-                <button
-                  onClick={handleEditWallet}
-                  className="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-white/20 text-[9px] font-bold text-gray-300 transition-all uppercase"
-                >
-                  Edit
-                </button>
-              </div>
-              <p className="text-[9px] text-[#a855f7] font-medium text-center font-sans">
-                ⭐ Your wallet is registered for the September 16 ARC Mainnet Launch!
-              </p>
-            </div>
-          ) : (
-            <form onSubmit={handleJoinWhitelist} className="space-y-2">
-              <div className="relative">
-                <input
-                  type="text"
-                  value={walletInput}
-                  onChange={handleWalletInputChange}
-                  placeholder="Paste EVM wallet (0x...)"
-                  className="w-full bg-[#070514] border border-[#a855f7]/50 rounded-xl px-3 py-2.5 text-xs text-white placeholder-gray-500 font-mono focus:outline-none focus:border-[#00d2ff] focus:ring-1 focus:ring-[#00d2ff] transition-all"
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="w-full py-2.5 rounded-xl bg-gradient-to-r from-[#8b5cf6] via-[#a855f7] to-[#00d2ff] hover:opacity-90 text-white font-black text-xs uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(168,85,247,0.4)] flex items-center justify-center space-x-2 cursor-pointer active:scale-98"
-              >
-                <span>🚀</span>
-                <span>Join Early Whitelist</span>
-              </button>
-            </form>
-          )}
+          <button
+            onClick={() => {
+              onClose();
+              if (onNavigateToWhitelist) {
+                onNavigateToWhitelist();
+              }
+            }}
+            className="w-full py-3 rounded-xl bg-gradient-to-r from-[#8b5cf6] via-[#a855f7] to-[#00d2ff] hover:opacity-95 text-white font-black text-xs uppercase tracking-wider transition-all shadow-[0_0_25px_rgba(168,85,247,0.5)] flex items-center justify-center space-x-2 cursor-pointer active:scale-98 animate-pulse"
+          >
+            <span>📝</span>
+            <span>Open Whitelist Registration Page</span>
+            <span>›</span>
+          </button>
         </div>
 
         {/* OFFICIAL SOCIAL CHANNELS */}
