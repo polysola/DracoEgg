@@ -841,8 +841,8 @@ const App: React.FC = () => {
       />
 
       {isLoading ? (
-        <div className="w-full h-screen flex items-center justify-center text-[#f0eeff] z-50 bg-[#060a12]">
-          <div className="w-12 h-12 border-4 border-[#00ff7b]/20 border-t-[#00ff7b] rounded-full animate-spin shadow-[0_0_20px_#00ff7b]"></div>
+        <div className="w-full h-screen flex items-center justify-center text-[#f0eeff] z-50 bg-[#070514]">
+          <div className="w-12 h-12 border-4 border-[#8b5cf6]/20 border-t-[#8b5cf6] rounded-full animate-spin shadow-[0_0_20px_#8b5cf6]"></div>
         </div>
       ) : (
         <div className="w-full text-[#f0eeff] h-screen max-h-screen font-bold flex flex-col justify-between max-w-md mx-auto relative z-10 overflow-hidden p-3 pb-24">
@@ -903,7 +903,7 @@ const App: React.FC = () => {
                 {/* BOOST CARD */}
                 <div
                   onClick={() => setActiveModal("boost")}
-                  className="bg-[#0a1424] hover:bg-[#00ff7b]/10 p-2.5 rounded-2xl border border-[#ffe600]/40 cursor-pointer transition-all flex flex-col justify-between"
+                  className="bg-[#0a0720] hover:bg-[#ffe600]/10 p-2.5 rounded-2xl border border-[#ffe600]/40 cursor-pointer transition-all flex flex-col justify-between"
                 >
                   <div className="flex items-center justify-between">
                     <span className="text-base">⚡</span>
@@ -922,10 +922,10 @@ const App: React.FC = () => {
                 </div>
 
                 {/* ENERGY CARD WITH SEGMENTED BLOCKS */}
-                <div className="bg-[#0a1424] p-2.5 rounded-2xl border border-[#00e5ff]/40 flex flex-col justify-between">
+                <div className="bg-[#0a0720] p-2.5 rounded-2xl border border-[#00d2ff]/40 flex flex-col justify-between">
                   <div className="flex items-center justify-between">
                     <span className="text-base">🔋</span>
-                    <span className="text-xs font-black text-[#00e5ff]">ENERGY</span>
+                    <span className="text-xs font-black text-[#00d2ff]">ENERGY</span>
                     <span className="text-[10px] text-gray-400">›</span>
                   </div>
                   <p className="text-[9px] font-bold text-white mt-1">{energy} / {maxEnergy}</p>
@@ -937,8 +937,8 @@ const App: React.FC = () => {
                         <div
                           key={i}
                           className={`h-1.5 flex-1 rounded-sm transition-all ${isActive
-                            ? "bg-[#00e5ff] shadow-[0_0_6px_#00e5ff]"
-                            : "bg-[#060a12] border border-[#00e5ff]/20"
+                            ? "bg-[#00d2ff] shadow-[0_0_6px_#00d2ff]"
+                            : "bg-[#060a12] border border-[#00d2ff]/20"
                             }`}
                         ></div>
                       );
@@ -949,11 +949,11 @@ const App: React.FC = () => {
                 {/* AUTO BOT CARD */}
                 <div
                   onClick={() => setActiveModal("autobot")}
-                  className="bg-[#0a1424] hover:bg-[#00e5ff]/10 p-2.5 rounded-2xl border border-[#ab00ff]/40 cursor-pointer transition-all flex flex-col justify-between"
+                  className="bg-[#0a0720] hover:bg-[#00d2ff]/10 p-2.5 rounded-2xl border border-[#a855f7]/40 cursor-pointer transition-all flex flex-col justify-between"
                 >
                   <div className="flex items-center justify-between">
                     <span className="text-base">🤖</span>
-                    <span className="text-xs font-black text-[#ab00ff]">AUTO BOT</span>
+                    <span className="text-xs font-black text-[#c084fc]">AUTO BOT</span>
                     <span className="text-[10px] text-gray-400">›</span>
                   </div>
                   <p className="text-[9px] text-gray-400 font-bold mt-1">
@@ -961,8 +961,8 @@ const App: React.FC = () => {
                   </p>
                   <div
                     className={`text-[9px] font-black px-2 py-0.5 rounded-lg mt-1 text-center transition-all ${botEarnings > 0
-                      ? "bg-[#ab00ff] text-white shadow-[0_0_12px_#ab00ff] animate-bounce"
-                      : "bg-[#ab00ff]/10 border border-[#ab00ff]/30 text-[#ab00ff]"
+                      ? "bg-[#a855f7] text-white shadow-[0_0_12px_#a855f7] animate-bounce"
+                      : "bg-[#a855f7]/10 border border-[#a855f7]/30 text-[#c084fc]"
                       }`}
                   >
                     {botEarnings > 0 ? `🔥 +${botEarnings.toLocaleString()}` : "🤖 ACTIVE"}
@@ -975,21 +975,21 @@ const App: React.FC = () => {
                 {/* DAILY REWARD */}
                 <div
                   onClick={() => setActiveModal("reward")}
-                  className={`bg-[#0a1424] hover:bg-[#00ff7b]/10 p-2.5 rounded-2xl border cursor-pointer transition-all flex flex-col items-center justify-between relative group ${localStorage.getItem(`reward_claimed_date_${user?.username}`) === new Date().toISOString().split("T")[0]
-                    ? "border-[#00ff7b]/30"
-                    : "border-[#00ff7b] shadow-[0_0_15px_rgba(0,255,123,0.3)] animate-pulse"
+                  className={`bg-[#0a0720] hover:bg-[#8b5cf6]/10 p-2.5 rounded-2xl border cursor-pointer transition-all flex flex-col items-center justify-between relative group ${localStorage.getItem(`reward_claimed_date_${user?.username}`) === new Date().toISOString().split("T")[0]
+                    ? "border-[#8b5cf6]/30"
+                    : "border-[#8b5cf6] shadow-[0_0_15px_rgba(139,92,246,0.3)] animate-pulse"
                     }`}
                 >
                   <span className="absolute top-2 right-2 text-gray-400 text-[10px]">›</span>
                   <span className="text-2xl mb-1">🎁</span>
-                  <p className="text-[9px] font-black text-[#00ff7b] uppercase">DAILY REWARD</p>
+                  <p className="text-[9px] font-black text-[#c084fc] uppercase">DAILY REWARD</p>
                   <p className="text-[7px] text-gray-400 font-bold mt-0.5">
                     {localStorage.getItem(`reward_claimed_date_${user?.username}`) === new Date().toISOString().split("T")[0] ? "Next in" : "Status"}
                   </p>
                   <div
                     className={`text-[9px] font-black px-2 py-0.5 rounded-lg mt-1 w-full text-center ${localStorage.getItem(`reward_claimed_date_${user?.username}`) === new Date().toISOString().split("T")[0]
-                      ? "bg-[#00ff7b]/10 border border-[#00ff7b]/30 text-[#00ff7b]"
-                      : "bg-[#00ff7b] text-black shadow-[0_0_10px_#00ff7b]"
+                      ? "bg-[#8b5cf6]/10 border border-[#8b5cf6]/30 text-[#c084fc]"
+                      : "bg-gradient-to-r from-[#8b5cf6] to-[#00d2ff] text-white shadow-[0_0_10px_rgba(139,92,246,0.5)]"
                       }`}
                   >
                     {localStorage.getItem(`reward_claimed_date_${user?.username}`) === new Date().toISOString().split("T")[0]
@@ -1101,7 +1101,7 @@ const App: React.FC = () => {
             >
               <div className="w-5 h-5 flex items-center justify-center">
                 <img
-                  src="/Logo ARC Draco.png"
+                  src={logo}
                   alt="Home"
                   className={`w-5 h-5 object-contain rounded-full group-hover:scale-110 transition-transform ${activeTab === "main" ? "drop-shadow-[0_0_8px_#8b5cf6]" : "opacity-70 group-hover:opacity-100"
                     }`}

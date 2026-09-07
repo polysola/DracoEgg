@@ -67,19 +67,19 @@ const DocsModal: React.FC<DocsModalProps> = ({ isOpen, onClose }) => {
         </div>
 
         {/* Dynamic Category Content */}
-        <div className="bg-[#070510] p-4 rounded-2xl border border-white/10 text-xs space-y-3 max-h-[52vh] overflow-y-auto pr-1">
+        <div className="bg-[#070514] p-4 rounded-2xl border border-white/10 text-xs space-y-3 max-h-[52vh] overflow-y-auto pr-1">
           
           {selectedCategory === "overview" && (
             <div className="space-y-2.5">
-              <h4 className="text-sm font-black text-[#00ff7b] uppercase flex items-center space-x-1.5">
+              <h4 className="text-sm font-black text-[#c084fc] uppercase flex items-center space-x-1.5 neon-purple-glow">
                 <span>🎮</span> <span>1. OVERVIEW & EXACT POINTS PER CLICK</span>
               </h4>
               <p className="text-gray-300 leading-relaxed text-[11px]">
                 <strong>ArcDraco</strong> is a Web3 Tap-to-Earn GameFi ecosystem powered by the <strong>ARC Network</strong>.
               </p>
               
-              <div className="bg-[#0a1424] p-3 rounded-xl border border-[#00ff7b]/30 space-y-1">
-                <p className="font-black text-[#00ff7b] text-[10px] uppercase">⚡ TAP MINING FORMULA</p>
+              <div className="bg-[#0a0720] p-3 rounded-xl border border-[#8b5cf6]/30 space-y-1">
+                <p className="font-black text-[#00d2ff] text-[10px] uppercase">⚡ TAP MINING FORMULA</p>
                 <p className="font-mono text-gray-200 text-[10px]">
                   Points Earned Per Click = (Level Index + 1) × 2 × Turbo Multiplier
                 </p>
@@ -87,20 +87,20 @@ const DocsModal: React.FC<DocsModalProps> = ({ isOpen, onClose }) => {
 
               <p className="font-black text-white text-[11px] uppercase">📊 PER-CLICK REWARDS TABLE BY LEVEL:</p>
               <div className="grid grid-cols-2 gap-1.5 font-mono text-[10px]">
-                <div className="bg-[#0a1424] p-1.5 rounded border border-white/10">Lv 1 Bronze: <span className="text-[#00ff7b] font-bold">+2 / tap</span></div>
-                <div className="bg-[#0a1424] p-1.5 rounded border border-white/10">Lv 2 Silver: <span className="text-[#00ff7b] font-bold">+4 / tap</span></div>
-                <div className="bg-[#0a1424] p-1.5 rounded border border-white/10">Lv 3 Gold: <span className="text-[#00ff7b] font-bold">+6 / tap</span></div>
-                <div className="bg-[#0a1424] p-1.5 rounded border border-white/10">Lv 4 Platinum: <span className="text-[#00ff7b] font-bold">+8 / tap</span></div>
-                <div className="bg-[#0a1424] p-1.5 rounded border border-white/10">Lv 5 Diamond: <span className="text-[#00ff7b] font-bold">+10 / tap</span></div>
-                <div className="bg-[#0a1424] p-1.5 rounded border border-white/10">Lv 6 Epic: <span className="text-[#00ff7b] font-bold">+12 / tap</span></div>
-                <div className="bg-[#0a1424] p-1.5 rounded border border-white/10">Lv 7 Legendary: <span className="text-[#00ff7b] font-bold">+14 / tap</span></div>
-                <div className="bg-[#0a1424] p-1.5 rounded border border-white/10">Lv 8 Master: <span className="text-[#00ff7b] font-bold">+16 / tap</span></div>
-                <div className="bg-[#0a1424] p-1.5 rounded border border-white/10">Lv 9 GrandMaster: <span className="text-[#00ff7b] font-bold">+18 / tap</span></div>
-                <div className="bg-[#0a1424] p-1.5 rounded border border-white/10">Lv 10 Lord: <span className="text-[#00ff7b] font-bold">+20 / tap</span></div>
+                <div className="bg-[#0a0720] p-1.5 rounded border border-white/10">Lv 1 Bronze: <span className="text-[#c084fc] font-bold">+2 / tap</span></div>
+                <div className="bg-[#0a0720] p-1.5 rounded border border-white/10">Lv 2 Silver: <span className="text-[#c084fc] font-bold">+4 / tap</span></div>
+                <div className="bg-[#0a0720] p-1.5 rounded border border-white/10">Lv 3 Gold: <span className="text-[#c084fc] font-bold">+6 / tap</span></div>
+                <div className="bg-[#0a0720] p-1.5 rounded border border-white/10">Lv 4 Platinum: <span className="text-[#c084fc] font-bold">+8 / tap</span></div>
+                <div className="bg-[#0a0720] p-1.5 rounded border border-white/10">Lv 5 Diamond: <span className="text-[#c084fc] font-bold">+10 / tap</span></div>
+                <div className="bg-[#0a0720] p-1.5 rounded border border-white/10">Lv 6 Epic: <span className="text-[#c084fc] font-bold">+12 / tap</span></div>
+                <div className="bg-[#0a0720] p-1.5 rounded border border-white/10">Lv 7 Legendary: <span className="text-[#c084fc] font-bold">+14 / tap</span></div>
+                <div className="bg-[#0a0720] p-1.5 rounded border border-white/10">Lv 8 Master: <span className="text-[#c084fc] font-bold">+16 / tap</span></div>
+                <div className="bg-[#0a0720] p-1.5 rounded border border-white/10">Lv 9 GrandMaster: <span className="text-[#c084fc] font-bold">+18 / tap</span></div>
+                <div className="bg-[#0a0720] p-1.5 rounded border border-white/10">Lv 10 Lord: <span className="text-[#c084fc] font-bold">+20 / tap</span></div>
               </div>
 
               <div className="bg-[#ffe600]/10 p-2 rounded-xl border border-[#ffe600]/30 text-[10px] text-[#ffe600] font-bold">
-                💥 Egg Hatching Jackpot: Every 15 Taps = Shell Cracks & Burst Sparkles +100 EGG Bonus!
+                💥 Egg Hatching Jackpot: Every 15 Taps = Shell Cracks & Burst Sparkles +100 DRACO Bonus!
               </div>
             </div>
           )}
@@ -111,29 +111,29 @@ const DocsModal: React.FC<DocsModalProps> = ({ isOpen, onClose }) => {
                 <span>🎟️</span> <span>DAILY COMBO TECH MODULES & POWER</span>
               </h4>
               <p className="text-gray-300 leading-relaxed text-[11px]">
-                Match the 3 secret tech module cards to unlock the <strong>+5,000 EGG Points Jackpot</strong> daily!
+                Match the 3 secret tech module cards to unlock the <strong>+5,000 DRACO Points Jackpot</strong> daily!
               </p>
 
               <div className="space-y-1.5">
-                <div className="bg-[#0a1424] p-2 rounded-xl border border-[#00ff7b]/30 flex justify-between items-center">
+                <div className="bg-[#0a0720] p-2 rounded-xl border border-[#8b5cf6]/30 flex justify-between items-center">
                   <span className="font-bold text-white text-[11px]">⚡ Quantum Rig</span>
-                  <span className="font-mono text-[#00ff7b] font-black text-[10px]">Power: +15K / hr</span>
+                  <span className="font-mono text-[#c084fc] font-black text-[10px]">Power: +15K / hr</span>
                 </div>
-                <div className="bg-[#0a1424] p-2 rounded-xl border border-[#00e5ff]/30 flex justify-between items-center">
+                <div className="bg-[#0a0720] p-2 rounded-xl border border-[#00d2ff]/30 flex justify-between items-center">
                   <span className="font-bold text-white text-[11px]">💎 ETH Validator</span>
-                  <span className="font-mono text-[#00e5ff] font-black text-[10px]">Power: +50K / hr</span>
+                  <span className="font-mono text-[#00d2ff] font-black text-[10px]">Power: +50K / hr</span>
                 </div>
-                <div className="bg-[#0a1424] p-2 rounded-xl border border-[#ab00ff]/30 flex justify-between items-center">
+                <div className="bg-[#0a0720] p-2 rounded-xl border border-[#a855f7]/30 flex justify-between items-center">
                   <span className="font-bold text-white text-[11px]">🤖 AI Cyber Node</span>
-                  <span className="font-mono text-[#ab00ff] font-black text-[10px]">Power: +120K / hr</span>
+                  <span className="font-mono text-[#a855f7] font-black text-[10px]">Power: +120K / hr</span>
                 </div>
-                <div className="bg-[#0a1424] p-2 rounded-xl border border-[#ffe600]/30 flex justify-between items-center">
+                <div className="bg-[#0a0720] p-2 rounded-xl border border-[#ffe600]/30 flex justify-between items-center">
                   <span className="font-bold text-white text-[11px]">🌐 ArcDraco Cyber Core</span>
                   <span className="font-mono text-[#ffe600] font-black text-[10px]">Power: +200K / hr</span>
                 </div>
               </div>
 
-              <p className="text-[10px] text-gray-400 italic">* Selecting all 3 correct card slots claims +5,000 EGG bonus (Refreshes at 12:00 UTC).</p>
+              <p className="text-[10px] text-gray-400 italic">* Selecting all 3 correct card slots claims +5,000 DRACO bonus (Refreshes at 12:00 UTC).</p>
             </div>
           )}
 
@@ -147,12 +147,12 @@ const DocsModal: React.FC<DocsModalProps> = ({ isOpen, onClose }) => {
               </p>
 
               <div className="grid grid-cols-2 gap-2">
-                <div className="bg-[#0a1424] p-2.5 rounded-xl border border-[#00ff7b]/30">
-                  <p className="font-black text-[#00ff7b] text-[11px]">🔋 Full Energy Refill</p>
+                <div className="bg-[#0a0720] p-2.5 rounded-xl border border-[#8b5cf6]/30">
+                  <p className="font-black text-[#c084fc] text-[11px]">🔋 Full Energy Refill</p>
                   <p className="text-[10px] text-gray-400 mt-1">Restores 1000/1000 energy. 6 free refills available per day.</p>
                 </div>
-                <div className="bg-[#0a1424] p-2.5 rounded-xl border border-[#00e5ff]/30">
-                  <p className="font-black text-[#00e5ff] text-[11px]">🚀 Turbo Tap 2X</p>
+                <div className="bg-[#0a0720] p-2.5 rounded-xl border border-[#00d2ff]/30">
+                  <p className="font-black text-[#00d2ff] text-[11px]">🚀 Turbo Tap 2X</p>
                   <p className="text-[10px] text-gray-400 mt-1">Multiplies all tap mining gains by 2x for 30 seconds.</p>
                 </div>
               </div>
@@ -163,7 +163,7 @@ const DocsModal: React.FC<DocsModalProps> = ({ isOpen, onClose }) => {
 
           {selectedCategory === "autobot" && (
             <div className="space-y-2.5">
-              <h4 className="text-sm font-black text-[#ab00ff] uppercase flex items-center space-x-1.5">
+              <h4 className="text-sm font-black text-[#a855f7] uppercase flex items-center space-x-1.5">
                 <span>🤖</span> <span>3. AI AUTO BOT OFFLINE MINING</span>
               </h4>
               <p className="text-gray-300 leading-relaxed text-[11px]">
@@ -171,8 +171,8 @@ const DocsModal: React.FC<DocsModalProps> = ({ isOpen, onClose }) => {
               </p>
 
               <ul className="text-gray-300 space-y-1.5 text-[11px] list-disc list-inside">
-                <li><strong>Fixed Mining Rate</strong>: Earns <strong>1,200 EGG coins / hour</strong> (+20 EGG/min).</li>
-                <li><strong>Anti-Inflation Cap</strong>: Maximum <strong>3 hours (3,600 EGG)</strong> per offline session.</li>
+                <li><strong>Fixed Mining Rate</strong>: Earns <strong>1,200 DRACO coins / hour</strong> (+20 DRACO/min).</li>
+                <li><strong>Anti-Inflation Cap</strong>: Maximum <strong>3 hours (3,600 DRACO)</strong> per offline session.</li>
                 <li><strong>Firestore Sync</strong>: Pressing Claim syncs points directly to your Cloud Firestore Database.</li>
               </ul>
             </div>
@@ -180,19 +180,19 @@ const DocsModal: React.FC<DocsModalProps> = ({ isOpen, onClose }) => {
 
           {selectedCategory === "quests" && (
             <div className="space-y-2.5">
-              <h4 className="text-sm font-black text-[#00ff7b] uppercase flex items-center space-x-1.5">
+              <h4 className="text-sm font-black text-[#c084fc] uppercase flex items-center space-x-1.5 neon-purple-glow">
                 <span>🎁</span> <span>4. DAILY QUESTS & REWARDS</span>
               </h4>
 
               <div className="space-y-2">
-                <div className="bg-[#0a1424] p-2.5 rounded-xl border border-[#00ff7b]/30">
-                  <p className="font-black text-[#00ff7b] text-[11px]">🎁 Daily Cyber Streak (Up to 10K)</p>
-                  <p className="text-[10px] text-gray-400 mt-0.5">Check-in 7 consecutive days to unlock 10,000 EGG Jackpot.</p>
+                <div className="bg-[#0a0720] p-2.5 rounded-xl border border-[#8b5cf6]/30">
+                  <p className="font-black text-[#c084fc] text-[11px]">🎁 Daily Cyber Streak (Up to 10K)</p>
+                  <p className="text-[10px] text-gray-400 mt-0.5">Check-in 7 consecutive days to unlock 10,000 DRACO Jackpot.</p>
                 </div>
 
-                <div className="bg-[#0a1424] p-2.5 rounded-xl border border-[#00e5ff]/30">
-                  <p className="font-black text-[#00e5ff] text-[11px]">🔐 Daily Morse Cipher (+2.5K)</p>
-                  <p className="text-[10px] text-gray-400 mt-0.5">Decipher today's Morse sequence (Dot • & Dash —) for +2,500 EGG.</p>
+                <div className="bg-[#0a0720] p-2.5 rounded-xl border border-[#00d2ff]/30">
+                  <p className="font-black text-[#00d2ff] text-[11px]">🔐 Daily Morse Cipher (+2.5K)</p>
+                  <p className="text-[10px] text-gray-400 mt-0.5">Decipher today's Morse sequence (Dot • & Dash —) for +2,500 DRACO.</p>
                 </div>
               </div>
             </div>
@@ -200,7 +200,7 @@ const DocsModal: React.FC<DocsModalProps> = ({ isOpen, onClose }) => {
 
           {selectedCategory === "web3" && (
             <div className="space-y-2.5">
-              <h4 className="text-sm font-black text-[#00e5ff] uppercase flex items-center space-x-1.5">
+              <h4 className="text-sm font-black text-[#00d2ff] uppercase flex items-center space-x-1.5">
                 <span>💳</span> <span>5. WEB3 WALLET, MAINNET & NFT MINT</span>
               </h4>
 
@@ -208,15 +208,15 @@ const DocsModal: React.FC<DocsModalProps> = ({ isOpen, onClose }) => {
                 <strong>ARC Network Mainnet</strong> is officially scheduled for <strong>September 16, 2026</strong>:
               </p>
 
-              <div className="bg-[#0a1424] p-3 rounded-xl border border-[#00e5ff]/40 space-y-1.5 text-center">
+              <div className="bg-[#0a0720] p-3 rounded-xl border border-[#00d2ff]/40 space-y-1.5 text-center">
                 <p className="text-[10px] text-[#c084fc] font-black uppercase">CONFIRMED USDC LIQUIDITY BACKING</p>
                 <p className="text-[11px] text-gray-200">
                   With guaranteed USDC allocation on ARC Network, we will launch the <span className="text-[#00d2ff] font-bold">ArcDraco Meme Token ($DRACO)</span> and open <span className="text-[#ec4899] font-bold">Genesis NFT Minting on OpenSea</span>!
                 </p>
-                <p className="text-[10px] text-[#00ff7b] font-black mt-1">MAINNET LAUNCH: SEPT 16, 2026</p>
+                <p className="text-[10px] text-[#00d2ff] font-black mt-1">MAINNET LAUNCH: SEPT 16, 2026</p>
               </div>
 
-              <div className="bg-[#0a1424] p-2.5 rounded-xl border border-white/10 space-y-1">
+              <div className="bg-[#0a0720] p-2.5 rounded-xl border border-white/10 space-y-1">
                 <p className="text-[9px] text-[#ffe600] font-black">💳 OFFICIAL DEV WALLET ADDRESS</p>
                 <p className="font-mono text-[10px] text-white break-all">0x078AE3440C6dA793dBC5b9Cc9b40b04E97D5053e</p>
               </div>
@@ -246,7 +246,7 @@ const DocsModal: React.FC<DocsModalProps> = ({ isOpen, onClose }) => {
 
           {selectedCategory === "leaderboard" && (
             <div className="space-y-2.5">
-              <h4 className="text-sm font-black text-[#00ff7b] uppercase flex items-center space-x-1.5">
+              <h4 className="text-sm font-black text-[#c084fc] uppercase flex items-center space-x-1.5 neon-purple-glow">
                 <span>📊</span> <span>7. LEADERBOARD & GLOBAL RANKING</span>
               </h4>
 

@@ -12,8 +12,8 @@ const RankingIcon: React.FC<IconProps> = ({ size = 24, className = "" }) => (
   >
     <defs>
       <linearGradient id="rank-grad" x1="0%" y1="100%" x2="0%" y2="0%">
-        <stop offset="0%" stopColor="#00ff7b" />
-        <stop offset="100%" stopColor="#31ff00" />
+        <stop offset="0%" stopColor="#8b5cf6" />
+        <stop offset="100%" stopColor="#00d2ff" />
       </linearGradient>
     </defs>
     <path
@@ -35,8 +35,8 @@ const RankingIcon: React.FC<IconProps> = ({ size = 24, className = "" }) => (
       strokeLinecap="round"
     />
     <circle cx="12" cy="4" r="1.5" fill="#ffe600" />
-    <circle cx="18" cy="10" r="1.2" fill="#00ff7b" />
-    <circle cx="6" cy="14" r="1.2" fill="#00ff7b" />
+    <circle cx="18" cy="10" r="1.2" fill="#00d2ff" />
+    <circle cx="6" cy="14" r="1.2" fill="#8b5cf6" />
   </svg>
 );
 

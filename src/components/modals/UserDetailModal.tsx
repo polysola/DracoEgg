@@ -54,29 +54,29 @@ const UserDetailModal: React.FC<UserDetailModalProps> = ({ user, onClose }) => {
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 bg-black/85 backdrop-blur-md animate-fade-in font-orbitron">
-      <div className="w-full max-w-sm bg-[#0a0f1d] border border-[#00ff7b]/40 rounded-[28px] p-5 text-[#f0eeff] shadow-[0_0_60px_rgba(0,255,123,0.3)] relative max-h-[92vh] overflow-y-auto">
+      <div className="w-full max-w-sm bg-[#0a0720] border border-[#8b5cf6]/40 rounded-[28px] p-5 text-[#f0eeff] shadow-[0_0_60px_rgba(139,92,246,0.3)] relative max-h-[92vh] overflow-y-auto">
         
         {/* Header */}
         <div className="flex justify-between items-center mb-4">
           <div className="flex items-center space-x-2">
             <span className="text-xl">🏆</span>
-            <h3 className="text-base sm:text-lg font-black uppercase tracking-tight neon-green-glow">
+            <h3 className="text-base sm:text-lg font-black uppercase tracking-tight neon-purple-glow">
               Player Cyber Profile
             </h3>
           </div>
           <button
             onClick={onClose}
-            className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:bg-[#00ff7b]/20 transition-all shrink-0"
+            className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:bg-[#8b5cf6]/20 transition-all shrink-0"
           >
             ✕
           </button>
         </div>
 
         {/* User Card */}
-        <div className="bg-[#070510] p-4 rounded-2xl border border-[#00ff7b]/30 mb-4 text-center space-y-2 relative overflow-hidden">
+        <div className="bg-[#070514] p-4 rounded-2xl border border-[#8b5cf6]/30 mb-4 text-center space-y-2 relative overflow-hidden">
           {/* Avatar with rank badge */}
           <div className="relative inline-block mx-auto">
-            <div className="p-1 rounded-full bg-gradient-to-tr from-[#00ff7b] via-[#00e5ff] to-[#ab00ff] shadow-[0_0_20px_rgba(0,255,123,0.4)]">
+            <div className="p-1 rounded-full bg-gradient-to-tr from-[#8b5cf6] via-[#a855f7] to-[#00d2ff] shadow-[0_0_20px_rgba(168,85,247,0.4)]">
               <img
                 src={avatarSrc}
                 alt={user.username}
@@ -86,10 +86,10 @@ const UserDetailModal: React.FC<UserDetailModalProps> = ({ user, onClose }) => {
                     target.src = logo;
                   }
                 }}
-                className="w-16 h-16 rounded-full object-cover bg-[#070510]"
+                className="w-16 h-16 rounded-full object-cover bg-[#070514]"
               />
             </div>
-            <div className="absolute -bottom-1 -right-1 bg-[#00ff7b] text-black font-black text-[10px] px-2 py-0.5 rounded-full shadow-[0_0_10px_#00ff7b]">
+            <div className="absolute -bottom-1 -right-1 bg-[#8b5cf6] text-white font-black text-[10px] px-2 py-0.5 rounded-full shadow-[0_0_10px_#8b5cf6]">
               #{user.rank}
             </div>
           </div>
@@ -99,7 +99,7 @@ const UserDetailModal: React.FC<UserDetailModalProps> = ({ user, onClose }) => {
             <h4 className="text-base font-black text-white truncate">
               {user.displayName || user.username}
             </h4>
-            <p className="text-xs font-mono text-[#00e5ff] font-bold">
+            <p className="text-xs font-mono text-[#00d2ff] font-bold">
               {user.username.startsWith("@") ? user.username : `@${user.username}`}
             </p>
           </div>
@@ -107,7 +107,7 @@ const UserDetailModal: React.FC<UserDetailModalProps> = ({ user, onClose }) => {
           {/* Verified Badge */}
           <div className="pt-1">
             {isRealTelegramUser ? (
-              <span className="inline-flex items-center space-x-1 text-[10px] text-[#00ff7b] bg-[#00ff7b]/10 px-2.5 py-0.5 rounded-full border border-[#00ff7b]/30 font-bold">
+              <span className="inline-flex items-center space-x-1 text-[10px] text-[#00d2ff] bg-[#00d2ff]/10 px-2.5 py-0.5 rounded-full border border-[#00d2ff]/30 font-bold">
                 <span>Verified Telegram Legend</span>
                 <span>✓</span>
               </span>
@@ -121,13 +121,13 @@ const UserDetailModal: React.FC<UserDetailModalProps> = ({ user, onClose }) => {
 
         {/* Player Stats */}
         <div className="grid grid-cols-2 gap-2 mb-4">
-          <div className="bg-[#070510] p-3 rounded-2xl border border-white/10 text-center">
-            <p className="text-[9px] text-gray-400 font-bold uppercase mb-1">TOTAL EGG SCORE</p>
-            <p className="text-sm sm:text-base font-black text-[#00ff7b] neon-green-glow truncate">
+          <div className="bg-[#070514] p-3 rounded-2xl border border-white/10 text-center">
+            <p className="text-[9px] text-gray-400 font-bold uppercase mb-1">TOTAL DRACO SCORE</p>
+            <p className="text-sm sm:text-base font-black text-[#c084fc] neon-purple-glow truncate">
               {formattedPoints}
             </p>
           </div>
-          <div className="bg-[#070510] p-3 rounded-2xl border border-white/10 text-center">
+          <div className="bg-[#070514] p-3 rounded-2xl border border-white/10 text-center">
             <p className="text-[9px] text-gray-400 font-bold uppercase mb-1">GLOBAL RANK</p>
             <p className="text-sm sm:text-base font-black text-[#ffe600] yellow-glow">
               Rank #{user.rank}

@@ -11,7 +11,7 @@ import bg from "./bg.png";
 import suit from "./suit.png";
 import robinhood from "./robinhood.png";
 
-const arcLogo = "/Logo ARC Draco.png";
+const arcLogo = "/logo-arc-draco.png";
 const arcLogoText = "/logotext.png";
 const logo = arcLogo;
 const dollarCoin = arcLogo;

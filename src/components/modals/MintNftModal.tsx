@@ -40,7 +40,7 @@ const MintNftModal: React.FC<MintNftModalProps> = ({
     }
 
     setIsMinting(true);
-    toast.info("⚡ Initiating Free NFT Minting Demo on Robinhood EVM Testnet...");
+    toast.info("⚡ Initiating Free NFT Minting Demo on ARC Network Testnet...");
 
     setTimeout(() => {
       const mintedTokenId = Math.floor(7000 + Math.random() * 2500);
@@ -49,15 +49,15 @@ const MintNftModal: React.FC<MintNftModalProps> = ({
       setIsMinting(false);
       localStorage.setItem(storageKey, mintedTokenId.toString());
 
-      // Award +10,000 EGG Bonus Points
+      // Award +10,000 DRACO Bonus Points
       onSuccessMint(10000);
-      toast.success(`🎉 Congratulations! Demo Genesis NFT Token #${mintedTokenId} Minted (+10,000 EGG Bonus)!`);
+      toast.success(`🎉 Congratulations! Demo Genesis NFT Token #${mintedTokenId} Minted (+10,000 DRACO Bonus)!`);
     }, 2500);
   };
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 bg-black/85 backdrop-blur-md animate-fade-in font-orbitron">
-      <div className="w-full max-w-md bg-[#0a0f1d] border border-[#ffe600]/40 rounded-[28px] p-5 text-[#f0eeff] shadow-[0_0_60px_rgba(255,230,0,0.3)] relative max-h-[92vh] overflow-y-auto">
+      <div className="w-full max-w-md bg-[#0a0720] border border-[#ffe600]/40 rounded-[28px] p-5 text-[#f0eeff] shadow-[0_0_60px_rgba(255,230,0,0.3)] relative max-h-[92vh] overflow-y-auto">
         
         {/* Header */}
         <div className="flex justify-between items-center mb-3">
@@ -123,11 +123,11 @@ const MintNftModal: React.FC<MintNftModalProps> = ({
           <div className="mt-3 bg-[#060a12] p-2 rounded-xl border border-white/10 space-y-1">
             <div className="flex justify-between text-[9px] font-bold text-gray-300">
               <span>DEMO MINTED SUPPLY</span>
-              <span className="text-[#00ff7b] font-mono">7,842 / 10,000 (78.4%)</span>
+              <span className="text-[#00d2ff] font-mono">7,842 / 10,000 (78.4%)</span>
             </div>
             <div className="w-full bg-white/10 h-2 rounded-full overflow-hidden p-0.5">
               <div
-                className="bg-gradient-to-r from-[#ffe600] to-[#00ff7b] h-full rounded-full transition-all duration-500"
+                className="bg-gradient-to-r from-[#8b5cf6] to-[#00d2ff] h-full rounded-full transition-all duration-500"
                 style={{ width: "78.4%" }}
               ></div>
             </div>
@@ -140,35 +140,35 @@ const MintNftModal: React.FC<MintNftModalProps> = ({
             ⚡ DEMO NFT HOLDER PERKS:
           </p>
           <div className="grid grid-cols-2 gap-2 text-left">
-            <div className="bg-[#070510] p-2.5 rounded-xl border border-[#00ff7b]/30 space-y-0.5">
-              <p className="text-[#00ff7b] font-black text-[11px] flex items-center space-x-1">
+            <div className="bg-[#070514] p-2.5 rounded-xl border border-[#8b5cf6]/30 space-y-0.5">
+              <p className="text-[#c084fc] font-black text-[11px] flex items-center space-x-1">
                 <span>🔥</span> <span>+50% Tap Earn</span>
               </p>
               <p className="text-[9px] text-gray-400">Permanent tap multiplier boost.</p>
             </div>
-            <div className="bg-[#070510] p-2.5 rounded-xl border border-[#00e5ff]/30 space-y-0.5">
-              <p className="text-[#00e5ff] font-black text-[11px] flex items-center space-x-1">
+            <div className="bg-[#070514] p-2.5 rounded-xl border border-[#00d2ff]/30 space-y-0.5">
+              <p className="text-[#00d2ff] font-black text-[11px] flex items-center space-x-1">
                 <span>🔋</span> <span>+2,000 Energy</span>
               </p>
               <p className="text-[9px] text-gray-400">Increased daily energy capacity.</p>
             </div>
           </div>
-          <div className="bg-[#070510] p-2.5 rounded-xl border border-[#ffe600]/30 flex justify-between items-center">
+          <div className="bg-[#070514] p-2.5 rounded-xl border border-[#ffe600]/30 flex justify-between items-center">
             <div className="space-y-0.5">
               <p className="text-[#ffe600] font-black text-[11px] flex items-center space-x-1">
                 <span>🎁</span> <span>Instant Demo Bonus</span>
               </p>
               <p className="text-[9px] text-gray-400">Awarded immediately upon demo minting.</p>
             </div>
-            <span className="text-xs font-mono font-black text-[#00ff7b] bg-[#00ff7b]/10 px-2 py-1 rounded-lg border border-[#00ff7b]/30">
-              +10,000 EGG
+            <span className="text-xs font-mono font-black text-[#c084fc] bg-[#8b5cf6]/10 px-2 py-1 rounded-lg border border-[#8b5cf6]/30">
+              +10,000 DRACO
             </span>
           </div>
         </div>
 
         {/* 📖 DETAILED NFT PROTOCOL GUIDE */}
-        <div className="bg-[#070510]/90 p-3 rounded-2xl border border-white/10 mb-4 space-y-1 text-xs">
-          <p className="font-black text-[#00e5ff] uppercase flex items-center space-x-1.5 text-[10px]">
+        <div className="bg-[#070514]/90 p-3 rounded-2xl border border-white/10 mb-4 space-y-1 text-xs">
+          <p className="font-black text-[#00d2ff] uppercase flex items-center space-x-1.5 text-[10px]">
             <span>📖</span> <span>DEMO NFT MINTING PROTOCOL GUIDE</span>
           </p>
           <ul className="text-gray-300 space-y-0.5 text-[10px] list-disc list-inside">
@@ -180,7 +180,7 @@ const MintNftModal: React.FC<MintNftModalProps> = ({
         {/* Mint Action Button */}
         {isMinted ? (
           <div className="space-y-2">
-            <div className="w-full py-3.5 rounded-2xl bg-[#00ff7b]/20 border border-[#00ff7b]/50 text-[#00ff7b] font-black text-xs uppercase tracking-wider text-center flex items-center justify-center space-x-1.5 shadow-[0_0_20px_rgba(0,255,123,0.3)]">
+            <div className="w-full py-3.5 rounded-2xl bg-[#8b5cf6]/20 border border-[#8b5cf6]/50 text-[#c084fc] font-black text-xs uppercase tracking-wider text-center flex items-center justify-center space-x-1.5 shadow-[0_0_20px_rgba(139,92,246,0.3)]">
               <span>✓</span>
               <span>DEMO NFT MINTED & CLAIMED (Token #{tokenId})</span>
             </div>

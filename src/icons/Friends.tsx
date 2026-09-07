@@ -13,8 +13,8 @@ const Friends: React.FC<IconProps> = ({ size = 24, className = "" }) => {
     >
       <defs>
         <linearGradient id="friends-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#00ff7b" />
-          <stop offset="100%" stopColor="#31ff00" />
+          <stop offset="0%" stopColor="#8b5cf6" />
+          <stop offset="100%" stopColor="#00d2ff" />
         </linearGradient>
       </defs>
       <path

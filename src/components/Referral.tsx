@@ -96,7 +96,7 @@ const Referral: React.FC<ReferralProps> = ({ users = [], currentUser }) => {
               return (
                 <div key={user.username} className="glass-card p-4 rounded-2xl flex items-center justify-between group hover:bg-white/5 transition-all border-[rgba(155,0,255,0.3)]">
                   <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#070510] to-[#12092b] border border-[#00ff7b]/30 flex items-center justify-center overflow-hidden">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#070514] to-[#12092b] border border-[#8b5cf6]/40 flex items-center justify-center overflow-hidden">
                       <img src={avatarSrc} alt={user.username} className="w-full h-full object-cover" />
                     </div>
                     <div>
@@ -105,7 +105,7 @@ const Referral: React.FC<ReferralProps> = ({ users = [], currentUser }) => {
                     </div>
                   </div>
                   <div className="text-right">
-                    <p className="text-xs font-black text-[#00ff7b] neon-green-glow">+{Math.floor(user.score * 0.05).toLocaleString()}</p>
+                    <p className="text-xs font-black text-[#c084fc] neon-purple-glow">+{Math.floor(user.score * 0.05).toLocaleString()}</p>
                     <p className="text-[9px] text-[#f0eeff]/40 font-bold uppercase">Commission</p>
                   </div>
                 </div>

@@ -66,16 +66,16 @@ const DailyRewardModal: React.FC<DailyRewardModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fade-in font-orbitron">
-      <div className="w-full max-w-md bg-[#0a1424] border border-[#00ff7b]/40 rounded-[28px] p-6 text-[#f0eeff] shadow-[0_0_50px_rgba(0,255,123,0.25)] relative max-h-[90vh] overflow-y-auto">
+      <div className="w-full max-w-md bg-[#0a0720] border border-[#8b5cf6]/40 rounded-[28px] p-6 text-[#f0eeff] shadow-[0_0_50px_rgba(139,92,246,0.3)] relative max-h-[90vh] overflow-y-auto">
         {/* Header */}
         <div className="flex justify-between items-center mb-3">
           <div className="flex items-center space-x-2">
             <span className="text-2xl">🎁</span>
-            <h3 className="text-xl font-black uppercase tracking-tight neon-green-glow">Daily Cyber Streak</h3>
+            <h3 className="text-xl font-black uppercase tracking-tight neon-purple-glow">Daily Cyber Streak</h3>
           </div>
           <button
             onClick={onClose}
-            className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:bg-[#00ff7b]/20 transition-all"
+            className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:bg-[#8b5cf6]/20 transition-all"
           >
             ✕
           </button>
@@ -94,28 +94,28 @@ const DailyRewardModal: React.FC<DailyRewardModalProps> = ({
                   r.day === 7 ? "col-span-2" : ""
                 } ${
                   isPast || (isCurrent && isClaimedToday)
-                    ? "bg-[#00ff7b]/10 border-[#00ff7b]/40 text-[#00ff7b]"
+                    ? "bg-[#8b5cf6]/10 border-[#8b5cf6]/40 text-[#c084fc]"
                     : isCurrent
-                    ? "bg-[#00e5ff]/20 border-[#00e5ff] text-white animate-pulse shadow-[0_0_15px_#00e5ff]"
-                    : "bg-[#060a12] border-white/10 text-gray-500"
+                    ? "bg-[#00d2ff]/20 border-[#00d2ff] text-white animate-pulse shadow-[0_0_15px_#00d2ff]"
+                    : "bg-[#070514] border-white/10 text-gray-500"
                 }`}
               >
                 <span className="text-[10px] font-black uppercase tracking-wider block mb-1">Day {r.day}</span>
                 <span className="text-sm font-black block text-[#ffe600]">{r.label}</span>
-                {(isPast || (isCurrent && isClaimedToday)) && <span className="text-[9px] font-bold text-[#00ff7b] mt-1">CLAIMED ✓</span>}
+                {(isPast || (isCurrent && isClaimedToday)) && <span className="text-[9px] font-bold text-[#00d2ff] mt-1">CLAIMED ✓</span>}
               </div>
             );
           })}
         </div>
 
         {/* 📖 DETAILED PROTOCOL GUIDE */}
-        <div className="bg-[#060a12] p-4 rounded-2xl border border-[#00ff7b]/30 mb-5 space-y-2 text-xs">
-          <p className="font-black text-[#00ff7b] uppercase flex items-center space-x-1.5">
+        <div className="bg-[#070514] p-4 rounded-2xl border border-[#8b5cf6]/30 mb-5 space-y-2 text-xs">
+          <p className="font-black text-[#c084fc] uppercase flex items-center space-x-1.5 neon-purple-glow">
             <span>📖</span> <span>DETAILED STREAK PROTOCOL GUIDE</span>
           </p>
           <ul className="text-gray-300 space-y-1.5 text-[11px] list-disc list-inside">
             <li>Log in consecutive days to multiply your daily points exponentially.</li>
-            <li>Reach the <strong>Day 7 Milestone</strong> to unlock <strong>10,000 ETH Points</strong>.</li>
+            <li>Reach the <strong>Day 7 Milestone</strong> to unlock <strong>10,000 DRACO Points</strong>.</li>
             <li>Claiming is available <strong>once every 24 hours</strong>.</li>
           </ul>
         </div>
@@ -127,7 +127,7 @@ const DailyRewardModal: React.FC<DailyRewardModalProps> = ({
           className={`w-full py-3.5 rounded-2xl font-black text-sm uppercase tracking-wider transition-all ${
             isClaimedToday
               ? "bg-gray-800 text-gray-500 cursor-not-allowed border border-white/10"
-              : "bg-gradient-to-r from-[#00ff7b] via-[#31ff00] to-[#00e5ff] text-black shadow-[0_0_25px_#00ff7b] hover:scale-[1.02]"
+              : "bg-gradient-to-r from-[#8b5cf6] via-[#a855f7] to-[#00d2ff] text-white shadow-[0_0_25px_rgba(168,85,247,0.4)] hover:scale-[1.02]"
           }`}
         >
           {isClaimedToday ? "Today's Reward Claimed ✓" : `Claim Day ${currentDay} (${rewards[currentDay - 1].label} Points)`}
