@@ -31,7 +31,7 @@ const DailyComboModal: React.FC<DailyComboModalProps> = ({
     { id: 1, name: "Quantum Rig", icon: "⚡", power: "+15K/hr" },
     { id: 2, name: "ETH Validator", icon: "💎", power: "+50K/hr" },
     { id: 3, name: "AI Cyber Node", icon: "🤖", power: "+120K/hr" },
-    { id: 4, name: "Robinhood Cyber Core", icon: "🌐", power: "+200K/hr" },
+    { id: 4, name: "ArcDraco Cyber Core", icon: "🌐", power: "+200K/hr" },
   ];
 
   if (!isOpen) return null;
@@ -151,7 +151,7 @@ const DailyComboModal: React.FC<DailyComboModalProps> = ({
           className={`w-full py-3.5 rounded-2xl font-black text-sm uppercase tracking-wider transition-all ${
             selectedCards.length !== 3 || isClaimedToday
               ? "bg-gray-800 text-gray-500 cursor-not-allowed border border-white/10"
-              : "bg-gradient-to-r from-[#ffe600] via-[#31ff00] to-[#00ff7b] text-black shadow-[0_0_25px_#ffe600] hover:scale-[1.02]"
+              : "bg-gradient-to-r from-[#ffe600] via-[#8b5cf6] to-[#00d2ff] text-black shadow-[0_0_25px_rgba(255,230,0,0.4)] hover:scale-[1.02]"
           }`}
         >
           {isClaimedToday ? "5,000 COMBO CLAIMED TODAY ✓" : `Claim 5,000 Combo (${selectedCards.length}/3 Cards)`}

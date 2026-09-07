@@ -229,7 +229,7 @@ https://www.ponsfamily.com/launchpad
 
 📢 Join Channels for Live Updates:
 • Follow X: https://x.com/EggRushRH
-• Join Telegram: https://t.me/EggRush_RobinHood
+• Join Telegram: https://t.me/ArcDraco_Portal
 
 🚀 Launchpad: https://www.ponsfamily.com/launchpad
 #EggRush #TokenLaunch #Launchpad #PonsFamily #CryptoLaunch

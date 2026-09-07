@@ -128,7 +128,7 @@ const DocsModal: React.FC<DocsModalProps> = ({ isOpen, onClose }) => {
                   <span className="font-mono text-[#ab00ff] font-black text-[10px]">Power: +120K / hr</span>
                 </div>
                 <div className="bg-[#0a1424] p-2 rounded-xl border border-[#ffe600]/30 flex justify-between items-center">
-                  <span className="font-bold text-white text-[11px]">🌐 Robinhood Cyber Core</span>
+                  <span className="font-bold text-white text-[11px]">🌐 ArcDraco Cyber Core</span>
                   <span className="font-mono text-[#ffe600] font-black text-[10px]">Power: +200K / hr</span>
                 </div>
               </div>

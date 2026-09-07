@@ -1,5 +1,4 @@
 import React from "react";
-import { robinhood } from "../images";
 
 interface RobinhoodHammerProps {
   style?: React.CSSProperties;
@@ -74,21 +73,17 @@ const RobinhoodHammer: React.FC<RobinhoodHammerProps> = ({
         />
 
         {/* 3. Strike Energy Caps (Left & Right Head Pistons) */}
-        <rect x="24" y="14" width="5" height="14" rx="2" fill="#00ff7b" />
-        <rect x="53" y="14" width="5" height="14" rx="2" fill="#ffe600" />
+        <rect x="24" y="14" width="5" height="14" rx="2" fill="#8b5cf6" />
+        <rect x="53" y="14" width="5" height="14" rx="2" fill="#00d2ff" />
 
         {/* 4. Energy Lightning Lines on Head */}
-        <line x1="30" y1="12" x2="52" y2="12" stroke="#00ff7b" strokeWidth="1" opacity="0.8" />
-        <line x1="30" y1="30" x2="52" y2="30" stroke="#00e5ff" strokeWidth="1" opacity="0.8" />
+        <line x1="30" y1="12" x2="52" y2="12" stroke="#8b5cf6" strokeWidth="1" opacity="0.8" />
+        <line x1="30" y1="30" x2="52" y2="30" stroke="#00d2ff" strokeWidth="1" opacity="0.8" />
       </svg>
 
-      {/* 5. Embedded Robinhood Brand Badge in the Middle of Hammer Head */}
-      <div className="absolute top-[13px] left-[31px] w-[20px] h-[16px] rounded-sm bg-[#00ff7b]/20 border border-[#00ff7b] flex items-center justify-center shadow-[0_0_8px_#00ff7b] overflow-hidden">
-        <img
-          src={robinhood}
-          alt="Robinhood Logo"
-          className="w-[14px] h-[14px] object-contain drop-shadow-[0_0_4px_#00ff7b]"
-        />
+      {/* 5. Embedded Arc Core Badge in the Middle of Hammer Head */}
+      <div className="absolute top-[13px] left-[31px] w-[20px] h-[16px] rounded-sm bg-[#8b5cf6]/30 border border-[#a855f7] flex items-center justify-center shadow-[0_0_8px_#8b5cf6] overflow-hidden">
+        <span className="text-[10px] font-black text-[#00d2ff] leading-none">A</span>
       </div>
     </div>
   );

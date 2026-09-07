@@ -9,7 +9,6 @@ import {
   egg,
   hatchedEgg,
   bg,
-  robinhood,
 } from "./images";
 import Info from "./icons/Info";
 import Settings from "./icons/Settings";
@@ -617,11 +616,10 @@ const App: React.FC = () => {
           {/* Wallet Button */}
           <button
             onClick={() => setActiveModal("wallet")}
-            className={`flex items-center space-x-1 px-2 py-1 sm:px-2.5 sm:py-1.5 rounded-xl bg-[#0f0b24] border transition-all text-[10px] sm:text-xs text-white font-bold shrink-0 ${
-              isWalletConnected
-                ? "border-[#a855f7] shadow-[0_0_10px_rgba(168,85,247,0.4)]"
-                : "border-[#00d2ff]/40 hover:border-[#00d2ff]"
-            }`}
+            className={`flex items-center space-x-1 px-2 py-1 sm:px-2.5 sm:py-1.5 rounded-xl bg-[#0f0b24] border transition-all text-[10px] sm:text-xs text-white font-bold shrink-0 ${isWalletConnected
+              ? "border-[#a855f7] shadow-[0_0_10px_rgba(168,85,247,0.4)]"
+              : "border-[#00d2ff]/40 hover:border-[#00d2ff]"
+              }`}
           >
             {isWalletConnected ? (
               <>
@@ -660,7 +658,7 @@ const App: React.FC = () => {
 
           {/* Telegram Social Button */}
           <button
-            onClick={() => window.open("https://t.me/EggRush_RobinHood", "_blank")}
+            onClick={() => window.open("https://t.me/ArcDraco_Portal", "_blank")}
             className="p-1.5 rounded-xl bg-[#0f0b24] hover:bg-[#00d2ff]/20 hover:scale-105 transition-all border border-[#00d2ff]/40 text-[#00d2ff] shrink-0"
             title="Join Telegram Community"
           >
@@ -692,16 +690,15 @@ const App: React.FC = () => {
             <div
               className="h-full bg-gradient-to-r from-[#8b5cf6] via-[#ec4899] to-[#00d2ff] rounded-full transition-all duration-300"
               style={{
-                width: `${
-                  levelIndex >= levelNames.length - 1
-                    ? 100
-                    : Math.min(
-                        ((points - levelMinPoints[levelIndex]) /
-                          (levelMinPoints[levelIndex + 1] - levelMinPoints[levelIndex])) *
-                          100,
-                        100
-                      )
-                }%`,
+                width: `${levelIndex >= levelNames.length - 1
+                  ? 100
+                  : Math.min(
+                    ((points - levelMinPoints[levelIndex]) /
+                      (levelMinPoints[levelIndex + 1] - levelMinPoints[levelIndex])) *
+                    100,
+                    100
+                  )
+                  }%`,
               }}
             ></div>
           </div>
@@ -851,31 +848,31 @@ const App: React.FC = () => {
         <div className="w-full text-[#f0eeff] h-screen max-h-screen font-bold flex flex-col justify-between max-w-md mx-auto relative z-10 overflow-hidden p-3 pb-24">
           {activeTab === "main" ? (
             <div className="flex-1 flex flex-col justify-between overflow-y-auto space-y-3">
-              
+
               {/* TẦNG 1: TOP HUD & ETH BALANCE CARD */}
               {renderHeader()}
 
               {/* TẦNG 2: CENTRAL HERO EGG STAGE WITH SVG VECTOR HUD REACTOR RING */}
               <div className="flex-1 flex flex-col items-center justify-center relative my-auto py-1">
-                
+
                 <HeroReactorRing eggHealth={eggHealth}>
                   {/* HERO CHARACTER - LARGER EGG FOR BETTER IMPACT */}
                   <div className="egg-container" style={{ cursor: `url(${hammer}) 16 16, pointer` }}>
-                    <div className={`w-64 h-64 sm:w-80 sm:h-80 p-2 rounded-full flex items-center justify-center relative overflow-hidden group shadow-[0_0_90px_rgba(0,255,123,0.55)] ${isShaking ? "animate-egg-shake" : ""}`} onClick={handleCardClick}>
-                      <img src={isHatching ? hatchedEgg : egg} alt="Egg" className="w-[98%] h-[98%] object-contain drop-shadow-[0_15px_45px_rgba(0,255,123,0.7)] transition-transform duration-500 group-hover:scale-105" />
+                    <div className={`w-64 h-64 sm:w-80 sm:h-80 p-2 rounded-full flex items-center justify-center relative overflow-hidden group shadow-[0_0_90px_rgba(168,85,247,0.5)] ${isShaking ? "animate-egg-shake" : ""}`} onClick={handleCardClick}>
+                      <img src={isHatching ? hatchedEgg : egg} alt="ArcDraco Egg" className="w-[98%] h-[98%] object-contain drop-shadow-[0_15px_45px_rgba(168,85,247,0.6)] transition-transform duration-500 group-hover:scale-105" />
 
                       {/* Impact Ripples */}
                       {hammerAnimations.map(h => (
                         <div key={`ripple-${h.id}`} className="absolute impact-ripple" style={{ left: h.x, top: h.y }}></div>
                       ))}
 
-                      {/* Much Larger Robinhood Hammer Visual */}
+                      {/* Much Larger ArcDraco Forge Hammer Visual */}
                       {hammerAnimations.map(h => (
                         <img
                           key={`hammer-${h.id}`}
                           src={hammer}
-                          alt="Robinhood Hammer"
-                          className="absolute w-24 h-24 sm:w-28 sm:h-28 pointer-events-none z-50 animate-hammer-strike filter drop-shadow-[0_0_20px_#00ff7b]"
+                          alt="ArcDraco Hammer"
+                          className="absolute w-24 h-24 sm:w-28 sm:h-28 pointer-events-none z-50 animate-hammer-strike filter drop-shadow-[0_0_20px_#8b5cf6]"
                           style={{ left: h.x - 48, top: h.y - 64 }}
                         />
                       ))}
@@ -915,11 +912,10 @@ const App: React.FC = () => {
                   </div>
                   <p className="text-[9px] text-gray-400 font-bold mt-1">Turbo x2</p>
                   <div
-                    className={`text-[9px] font-black px-2 py-0.5 rounded-lg mt-1 text-center transition-all ${
-                      isBoostActive
-                        ? "bg-[#ffe600] text-black shadow-[0_0_10px_#ffe600] animate-pulse"
-                        : "bg-[#ffe600]/10 border border-[#ffe600]/30 text-[#ffe600]"
-                    }`}
+                    className={`text-[9px] font-black px-2 py-0.5 rounded-lg mt-1 text-center transition-all ${isBoostActive
+                      ? "bg-[#ffe600] text-black shadow-[0_0_10px_#ffe600] animate-pulse"
+                      : "bg-[#ffe600]/10 border border-[#ffe600]/30 text-[#ffe600]"
+                      }`}
                   >
                     {isBoostActive ? `⏱ ${boostTimeLeft}s` : "⚡ READY"}
                   </div>
@@ -940,11 +936,10 @@ const App: React.FC = () => {
                       return (
                         <div
                           key={i}
-                          className={`h-1.5 flex-1 rounded-sm transition-all ${
-                            isActive
-                              ? "bg-[#00e5ff] shadow-[0_0_6px_#00e5ff]"
-                              : "bg-[#060a12] border border-[#00e5ff]/20"
-                          }`}
+                          className={`h-1.5 flex-1 rounded-sm transition-all ${isActive
+                            ? "bg-[#00e5ff] shadow-[0_0_6px_#00e5ff]"
+                            : "bg-[#060a12] border border-[#00e5ff]/20"
+                            }`}
                         ></div>
                       );
                     })}
@@ -965,11 +960,10 @@ const App: React.FC = () => {
                     {botEarnings > 0 ? "Mining Ready" : "Offline Mining"}
                   </p>
                   <div
-                    className={`text-[9px] font-black px-2 py-0.5 rounded-lg mt-1 text-center transition-all ${
-                      botEarnings > 0
-                        ? "bg-[#ab00ff] text-white shadow-[0_0_12px_#ab00ff] animate-bounce"
-                        : "bg-[#ab00ff]/10 border border-[#ab00ff]/30 text-[#ab00ff]"
-                    }`}
+                    className={`text-[9px] font-black px-2 py-0.5 rounded-lg mt-1 text-center transition-all ${botEarnings > 0
+                      ? "bg-[#ab00ff] text-white shadow-[0_0_12px_#ab00ff] animate-bounce"
+                      : "bg-[#ab00ff]/10 border border-[#ab00ff]/30 text-[#ab00ff]"
+                      }`}
                   >
                     {botEarnings > 0 ? `🔥 +${botEarnings.toLocaleString()}` : "🤖 ACTIVE"}
                   </div>
@@ -981,11 +975,10 @@ const App: React.FC = () => {
                 {/* DAILY REWARD */}
                 <div
                   onClick={() => setActiveModal("reward")}
-                  className={`bg-[#0a1424] hover:bg-[#00ff7b]/10 p-2.5 rounded-2xl border cursor-pointer transition-all flex flex-col items-center justify-between relative group ${
-                    localStorage.getItem(`reward_claimed_date_${user?.username}`) === new Date().toISOString().split("T")[0]
-                      ? "border-[#00ff7b]/30"
-                      : "border-[#00ff7b] shadow-[0_0_15px_rgba(0,255,123,0.3)] animate-pulse"
-                  }`}
+                  className={`bg-[#0a1424] hover:bg-[#00ff7b]/10 p-2.5 rounded-2xl border cursor-pointer transition-all flex flex-col items-center justify-between relative group ${localStorage.getItem(`reward_claimed_date_${user?.username}`) === new Date().toISOString().split("T")[0]
+                    ? "border-[#00ff7b]/30"
+                    : "border-[#00ff7b] shadow-[0_0_15px_rgba(0,255,123,0.3)] animate-pulse"
+                    }`}
                 >
                   <span className="absolute top-2 right-2 text-gray-400 text-[10px]">›</span>
                   <span className="text-2xl mb-1">🎁</span>
@@ -994,11 +987,10 @@ const App: React.FC = () => {
                     {localStorage.getItem(`reward_claimed_date_${user?.username}`) === new Date().toISOString().split("T")[0] ? "Next in" : "Status"}
                   </p>
                   <div
-                    className={`text-[9px] font-black px-2 py-0.5 rounded-lg mt-1 w-full text-center ${
-                      localStorage.getItem(`reward_claimed_date_${user?.username}`) === new Date().toISOString().split("T")[0]
-                        ? "bg-[#00ff7b]/10 border border-[#00ff7b]/30 text-[#00ff7b]"
-                        : "bg-[#00ff7b] text-black shadow-[0_0_10px_#00ff7b]"
-                    }`}
+                    className={`text-[9px] font-black px-2 py-0.5 rounded-lg mt-1 w-full text-center ${localStorage.getItem(`reward_claimed_date_${user?.username}`) === new Date().toISOString().split("T")[0]
+                      ? "bg-[#00ff7b]/10 border border-[#00ff7b]/30 text-[#00ff7b]"
+                      : "bg-[#00ff7b] text-black shadow-[0_0_10px_#00ff7b]"
+                      }`}
                   >
                     {localStorage.getItem(`reward_claimed_date_${user?.username}`) === new Date().toISOString().split("T")[0]
                       ? dailyRewardTimeLeft
@@ -1009,11 +1001,10 @@ const App: React.FC = () => {
                 {/* CIPHER */}
                 <div
                   onClick={() => setActiveModal("cipher")}
-                  className={`bg-[#0a1424] hover:bg-[#00e5ff]/10 p-2.5 rounded-2xl border cursor-pointer transition-all flex flex-col items-center justify-between relative group ${
-                    localStorage.getItem(`cipher_claimed_${user?.username}_${new Date().toISOString().split("T")[0]}`) === "true"
-                      ? "border-[#00e5ff]/30"
-                      : "border-[#00e5ff] shadow-[0_0_15px_rgba(0,229,255,0.3)] animate-pulse"
-                  }`}
+                  className={`bg-[#0a1424] hover:bg-[#00e5ff]/10 p-2.5 rounded-2xl border cursor-pointer transition-all flex flex-col items-center justify-between relative group ${localStorage.getItem(`cipher_claimed_${user?.username}_${new Date().toISOString().split("T")[0]}`) === "true"
+                    ? "border-[#00e5ff]/30"
+                    : "border-[#00e5ff] shadow-[0_0_15px_rgba(0,229,255,0.3)] animate-pulse"
+                    }`}
                 >
                   <span className="absolute top-2 right-2 text-gray-400 text-[10px]">›</span>
                   <span className="text-2xl mb-1">🔐</span>
@@ -1022,11 +1013,10 @@ const App: React.FC = () => {
                     {localStorage.getItem(`cipher_claimed_${user?.username}_${new Date().toISOString().split("T")[0]}`) === "true" ? "Next in" : "Status"}
                   </p>
                   <div
-                    className={`text-[9px] font-black px-2 py-0.5 rounded-lg mt-1 w-full text-center ${
-                      localStorage.getItem(`cipher_claimed_${user?.username}_${new Date().toISOString().split("T")[0]}`) === "true"
-                        ? "bg-[#00e5ff]/10 border border-[#00e5ff]/30 text-[#00e5ff]"
-                        : "bg-[#00e5ff] text-black shadow-[0_0_10px_#00e5ff]"
-                    }`}
+                    className={`text-[9px] font-black px-2 py-0.5 rounded-lg mt-1 w-full text-center ${localStorage.getItem(`cipher_claimed_${user?.username}_${new Date().toISOString().split("T")[0]}`) === "true"
+                      ? "bg-[#00e5ff]/10 border border-[#00e5ff]/30 text-[#00e5ff]"
+                      : "bg-[#00e5ff] text-black shadow-[0_0_10px_#00e5ff]"
+                      }`}
                   >
                     {localStorage.getItem(`cipher_claimed_${user?.username}_${new Date().toISOString().split("T")[0]}`) === "true"
                       ? dailyCipherTimeLeft
@@ -1037,11 +1027,10 @@ const App: React.FC = () => {
                 {/* COMBO */}
                 <div
                   onClick={() => setActiveModal("combo")}
-                  className={`bg-[#0a1424] hover:bg-[#ffe600]/10 p-2.5 rounded-2xl border cursor-pointer transition-all flex flex-col items-center justify-between relative group ${
-                    localStorage.getItem(`combo_claimed_${user?.username}_${new Date().toISOString().split("T")[0]}`) === "true"
-                      ? "border-[#ffe600]/30"
-                      : "border-[#ffe600] shadow-[0_0_15px_rgba(255,230,0,0.3)] animate-pulse"
-                  }`}
+                  className={`bg-[#0a1424] hover:bg-[#ffe600]/10 p-2.5 rounded-2xl border cursor-pointer transition-all flex flex-col items-center justify-between relative group ${localStorage.getItem(`combo_claimed_${user?.username}_${new Date().toISOString().split("T")[0]}`) === "true"
+                    ? "border-[#ffe600]/30"
+                    : "border-[#ffe600] shadow-[0_0_15px_rgba(255,230,0,0.3)] animate-pulse"
+                    }`}
                 >
                   <span className="absolute top-2 right-2 text-gray-400 text-[10px]">›</span>
                   <span className="text-2xl mb-1">🎟️</span>
@@ -1050,11 +1039,10 @@ const App: React.FC = () => {
                     {localStorage.getItem(`combo_claimed_${user?.username}_${new Date().toISOString().split("T")[0]}`) === "true" ? "Next in" : "Status"}
                   </p>
                   <div
-                    className={`text-[9px] font-black px-2 py-0.5 rounded-lg mt-1 w-full text-center ${
-                      localStorage.getItem(`combo_claimed_${user?.username}_${new Date().toISOString().split("T")[0]}`) === "true"
-                        ? "bg-[#ffe600]/10 border border-[#ffe600]/30 text-[#ffe600]"
-                        : "bg-[#ffe600] text-black shadow-[0_0_10px_#ffe600]"
-                    }`}
+                    className={`text-[9px] font-black px-2 py-0.5 rounded-lg mt-1 w-full text-center ${localStorage.getItem(`combo_claimed_${user?.username}_${new Date().toISOString().split("T")[0]}`) === "true"
+                      ? "bg-[#ffe600]/10 border border-[#ffe600]/30 text-[#ffe600]"
+                      : "bg-[#ffe600] text-black shadow-[0_0_10px_#ffe600]"
+                      }`}
                   >
                     {localStorage.getItem(`combo_claimed_${user?.username}_${new Date().toISOString().split("T")[0]}`) === "true"
                       ? dailyComboTimeLeft
@@ -1108,17 +1096,15 @@ const App: React.FC = () => {
             {/* HOME TAB */}
             <div
               onClick={() => handleTabChange("main")}
-              className={`flex flex-col items-center justify-center cursor-pointer transition-all group ${
-                activeTab === "main" ? "text-[#c084fc]" : "text-gray-400 hover:text-white"
-              }`}
+              className={`flex flex-col items-center justify-center cursor-pointer transition-all group ${activeTab === "main" ? "text-[#c084fc]" : "text-gray-400 hover:text-white"
+                }`}
             >
               <div className="w-5 h-5 flex items-center justify-center">
                 <img
-                  src={robinhood}
-                  alt="Robinhood"
-                  className={`w-5 h-5 object-contain group-hover:scale-110 transition-transform ${
-                    activeTab === "main" ? "drop-shadow-[0_0_8px_#8b5cf6]" : "opacity-70 group-hover:opacity-100"
-                  }`}
+                  src="/Logo ARC Draco.png"
+                  alt="Home"
+                  className={`w-5 h-5 object-contain rounded-full group-hover:scale-110 transition-transform ${activeTab === "main" ? "drop-shadow-[0_0_8px_#8b5cf6]" : "opacity-70 group-hover:opacity-100"
+                    }`}
                 />
               </div>
               <span className="text-[9px] font-black uppercase tracking-tight mt-1">HOME</span>
@@ -1127,9 +1113,8 @@ const App: React.FC = () => {
             {/* DOCS TAB */}
             <div
               onClick={() => setActiveModal("docs")}
-              className={`flex flex-col items-center justify-center cursor-pointer transition-all group ${
-                activeModal === "docs" ? "text-[#00d2ff]" : "text-gray-400 hover:text-[#00d2ff]"
-              }`}
+              className={`flex flex-col items-center justify-center cursor-pointer transition-all group ${activeModal === "docs" ? "text-[#00d2ff]" : "text-gray-400 hover:text-[#00d2ff]"
+                }`}
             >
               <BookIcon size={20} className="group-hover:scale-110 transition-transform" />
               <span className="text-[9px] font-black uppercase tracking-tight mt-1">DOCS</span>
@@ -1138,9 +1123,8 @@ const App: React.FC = () => {
             {/* RANKING TAB */}
             <div
               onClick={() => handleTabChange("leaderboard")}
-              className={`flex flex-col items-center justify-center cursor-pointer transition-all group ${
-                activeTab === "leaderboard" ? "text-[#c084fc]" : "text-gray-400 hover:text-white"
-              }`}
+              className={`flex flex-col items-center justify-center cursor-pointer transition-all group ${activeTab === "leaderboard" ? "text-[#c084fc]" : "text-gray-400 hover:text-white"
+                }`}
             >
               <RankingIcon size={20} className="group-hover:scale-110 transition-transform" />
               <span className="text-[9px] font-black uppercase tracking-tight mt-1">RANKING</span>
@@ -1149,9 +1133,8 @@ const App: React.FC = () => {
             {/* REFS TAB */}
             <div
               onClick={() => handleTabChange("referral")}
-              className={`flex flex-col items-center justify-center cursor-pointer transition-all group ${
-                activeTab === "referral" ? "text-[#c084fc]" : "text-gray-400 hover:text-white"
-              }`}
+              className={`flex flex-col items-center justify-center cursor-pointer transition-all group ${activeTab === "referral" ? "text-[#c084fc]" : "text-gray-400 hover:text-white"
+                }`}
             >
               <Friends size={20} className="group-hover:scale-110 transition-transform" />
               <span className="text-[9px] font-black uppercase tracking-tight mt-1">REFS</span>
@@ -1160,20 +1143,18 @@ const App: React.FC = () => {
             {/* MINT NFT TAB */}
             <div
               onClick={() => setActiveModal("mint")}
-              className={`flex flex-col items-center justify-center cursor-pointer transition-all relative group ${
-                activeModal === "mint" ? "text-[#ffe600]" : "text-gray-400 hover:text-[#ffe600]"
-              }`}
+              className={`flex flex-col items-center justify-center cursor-pointer transition-all relative group ${activeModal === "mint" ? "text-[#ffe600]" : "text-gray-400 hover:text-[#ffe600]"
+                }`}
             >
               <span className="absolute -top-1 right-1 w-2 h-2 rounded-full bg-[#ffe600] animate-ping"></span>
               <NftIcon size={20} className="group-hover:scale-110 transition-transform" />
               <div className="flex items-center space-x-1 mt-0.5">
                 <span className="text-[9px] font-black uppercase tracking-tight">MINT NFT</span>
                 <span
-                  className={`text-[6px] font-black px-1 rounded border ${
-                    activeModal === "mint"
-                      ? "bg-[#ffe600]/20 text-[#ffe600] border-[#ffe600]/50"
-                      : "bg-white/5 text-gray-400 border-white/20"
-                  }`}
+                  className={`text-[6px] font-black px-1 rounded border ${activeModal === "mint"
+                    ? "bg-[#ffe600]/20 text-[#ffe600] border-[#ffe600]/50"
+                    : "bg-white/5 text-gray-400 border-white/20"
+                    }`}
                 >
                   DEMO
                 </span>

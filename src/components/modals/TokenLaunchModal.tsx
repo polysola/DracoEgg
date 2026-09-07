@@ -23,7 +23,7 @@ const TokenLaunchModal: React.FC<TokenLaunchModalProps> = ({ isOpen, onClose, us
   const [isEditingWallet, setIsEditingWallet] = useState<boolean>(false);
 
   const X_LINK = "https://x.com/ArcDracoEgg";
-  const TELEGRAM_LINK = "https://t.me/EggRush_RobinHood";
+  const TELEGRAM_LINK = "https://t.me/ArcDraco_Portal";
   const MAINNET_DATE_STRING = "September 16, 2026 - 00:00 UTC";
 
   // Load saved whitelisted wallet from localStorage
@@ -105,7 +105,7 @@ const TokenLaunchModal: React.FC<TokenLaunchModalProps> = ({ isOpen, onClose, us
   return (
     <div className="fixed inset-0 z-[120] flex items-center justify-center p-3 bg-black/90 backdrop-blur-md animate-fade-in font-orbitron">
       <div className="w-full max-w-md bg-[#0b081e] border-2 border-[#a855f7]/70 rounded-[32px] p-5 sm:p-6 text-[#f5f3ff] shadow-[0_0_60px_rgba(168,85,247,0.4)] relative max-h-[95vh] overflow-y-auto">
-        
+
         {/* Top ArcDraco Mascot & Text Logo Badge */}
         <div className="flex flex-col items-center justify-center mb-3">
           <div className="relative group mb-2">
@@ -137,7 +137,7 @@ const TokenLaunchModal: React.FC<TokenLaunchModalProps> = ({ isOpen, onClose, us
             <span>🌐</span>
             <span>MAINNET LAUNCH: SEPT 16, 2026</span>
           </div>
-          
+
           <p className="text-[11px] sm:text-xs text-gray-200 leading-relaxed font-sans font-medium">
             ARC Network goes live on <span className="text-[#00d2ff] font-bold">September 16</span>. With confirmed <span className="text-[#ffe600] font-bold">USDC liquidity backing</span>, we will officially launch the <span className="text-[#c084fc] font-bold">ArcDraco Meme Token ($DRACO)</span> and open <span className="text-[#ec4899] font-bold">Free Genesis NFT Minting on OpenSea</span> right after Mainnet!
           </p>
