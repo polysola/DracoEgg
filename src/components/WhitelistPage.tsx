@@ -5,7 +5,8 @@ import TelegramIcon from "../icons/TelegramIcon";
 import { saveWhitelistSubmission } from "../services/userService";
 
 interface WhitelistPageProps {
-  onBack: () => void;
+  onBack?: () => void;
+  onOpenAnnouncement?: () => void;
   currentUser?: string;
   currentWalletAddress?: string;
 }
@@ -19,9 +20,9 @@ interface StoredWhitelistData {
 }
 
 const WhitelistPage: React.FC<WhitelistPageProps> = ({
-  onBack,
   currentUser,
   currentWalletAddress,
+  onOpenAnnouncement,
 }) => {
   const [xAccount, setXAccount] = useState<string>("");
   const [retweetLink, setRetweetLink] = useState<string>("");
@@ -171,13 +172,21 @@ const WhitelistPage: React.FC<WhitelistPageProps> = ({
     <div className="flex-1 flex flex-col overflow-y-auto pb-24 font-orbitron text-[#f5f3ff]">
       {/* Top Header Bar */}
       <div className="px-3 pt-3 flex items-center justify-between z-10">
-        <button
-          onClick={onBack}
-          className="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-white/10 hover:bg-[#8b5cf6]/20 border border-white/10 text-xs font-black uppercase text-gray-300 hover:text-white transition-all"
-        >
-          <span>←</span>
-          <span>Back to Game</span>
-        </button>
+        {onOpenAnnouncement ? (
+          <button
+            type="button"
+            onClick={onOpenAnnouncement}
+            className="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-[#8b5cf6]/20 hover:bg-[#8b5cf6]/30 border border-[#8b5cf6]/50 text-xs font-black uppercase text-[#00d2ff] transition-all shadow-[0_0_12px_rgba(139,92,246,0.3)] cursor-pointer"
+          >
+            <span>📢</span>
+            <span>View Announcement</span>
+          </button>
+        ) : (
+          <div className="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-[11px] font-bold text-gray-400">
+            <span>🔒</span>
+            <span>Early Access</span>
+          </div>
+        )}
 
         <div className="flex items-center space-x-2">
           <img src="/logotext.png" alt="ArcDraco" className="h-5 object-contain filter drop-shadow-[0_0_8px_#8b5cf6]" />
@@ -310,17 +319,21 @@ const WhitelistPage: React.FC<WhitelistPageProps> = ({
 
             <div className="flex space-x-2 pt-1">
               <button
+                type="button"
                 onClick={() => setIsEditing(true)}
-                className="flex-1 py-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-xs font-black uppercase text-gray-300 hover:text-white transition-all"
+                className="flex-1 py-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-xs font-black uppercase text-gray-300 hover:text-white transition-all cursor-pointer"
               >
                 ✏️ Edit Info
               </button>
-              <button
-                onClick={onBack}
-                className="flex-1 py-3 rounded-xl bg-gradient-to-r from-[#8b5cf6] via-[#a855f7] to-[#00d2ff] text-white font-black text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(168,85,247,0.4)] hover:opacity-90 transition-all"
-              >
-                🎮 Play Game
-              </button>
+              {onOpenAnnouncement && (
+                <button
+                  type="button"
+                  onClick={onOpenAnnouncement}
+                  className="flex-1 py-3 rounded-xl bg-gradient-to-r from-[#8b5cf6] via-[#a855f7] to-[#00d2ff] text-white font-black text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(168,85,247,0.4)] hover:opacity-90 transition-all cursor-pointer"
+                >
+                  📢 Announcement
+                </button>
+              )}
             </div>
           </div>
         ) : (

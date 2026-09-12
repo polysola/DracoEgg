@@ -202,7 +202,7 @@ const App: React.FC = () => {
   const [saveTimeout, setSaveTimeout] = useState<NodeJS.Timeout | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [leaderboard, setLeaderboard] = useState<LeaderboardUser[]>([]);
-  const [activeTab, setActiveTab] = useState<"main" | "leaderboard" | "referral" | "whitelist">("main");
+  const [activeTab, setActiveTab] = useState<"whitelist">("whitelist");
 
   const {
     referrals,
@@ -292,13 +292,13 @@ const App: React.FC = () => {
     }
   };
 
-  const handleTabChange = (tab: "main" | "leaderboard" | "referral" | "whitelist") => {
-    setActiveTab(tab);
-    if (tab === "leaderboard") {
-      fetchLeaderboard();
-    } else if (tab === "referral") {
-      refetchReferrals();
-    }
+  const handleLockedFeature = (featureName: string) => {
+    toast.info(`🔒 ${featureName} is locked until Arc Mainnet launch (Sept 16, 2026). Please register for Whitelist!`);
+  };
+
+  const handleTabChange = (_tab: "main" | "leaderboard" | "referral" | "whitelist") => {
+    // All sub-pages locked as requested: user can only view announcement and fill whitelist
+    setActiveTab("whitelist");
   };
 
   // Energy Restoration Timer - Exact +3 Energy per second
@@ -614,16 +614,6 @@ const App: React.FC = () => {
 
         {/* Right Side: Wallet Button & Action Icons (Bell, X, Telegram, Settings) */}
         <div className="flex items-center space-x-1 shrink-0">
-          {/* Whitelist Quick Access Button */}
-          <button
-            onClick={() => handleTabChange("whitelist")}
-            className="flex items-center space-x-1 px-2 py-1 sm:px-2.5 sm:py-1.5 rounded-xl bg-gradient-to-r from-[#8b5cf6]/20 to-[#00d2ff]/20 hover:from-[#8b5cf6]/35 hover:to-[#00d2ff]/35 border border-[#8b5cf6]/60 shadow-[0_0_10px_rgba(139,92,246,0.3)] transition-all text-[10px] sm:text-xs text-[#00d2ff] font-bold shrink-0"
-            title="Genesis Whitelist Registration"
-          >
-            <span>🎟️</span>
-            <span className="hidden sm:inline font-orbitron">WL</span>
-          </button>
-
           {/* Wallet Button */}
           <button
             onClick={() => setActiveModal("wallet")}
@@ -867,9 +857,9 @@ const App: React.FC = () => {
           {activeTab === "whitelist" ? (
             <div className="flex-1 flex flex-col overflow-y-auto">
               <WhitelistPage
-                onBack={() => handleTabChange("main")}
                 currentUser={user?.username}
                 currentWalletAddress={walletAddress}
+                onOpenAnnouncement={() => setIsLaunchModalOpen(true)}
               />
             </div>
           ) : activeTab === "main" ? (
@@ -1117,73 +1107,76 @@ const App: React.FC = () => {
             </div>
           )}
 
-          {/* TẦNG 5: FLOATING NAVIGATION TASKBAR WITH ETH LOGO */}
-          <div className="fixed bottom-3 left-1/2 -translate-x-1/2 w-[calc(100%-1.5rem)] max-w-md bg-[#0f0b24]/95 backdrop-blur-md rounded-full p-2 flex justify-around items-center z-50 border border-[#8b5cf6]/40 shadow-[0_0_20px_rgba(139,92,246,0.3)]">
-            {/* HOME TAB */}
+          {/* TẦNG 5: FLOATING NAVIGATION TASKBAR (DISABLED / LOCKED BEFORE MAINNET) */}
+          <div className="fixed bottom-3 left-1/2 -translate-x-1/2 w-[calc(100%-1.5rem)] max-w-md bg-[#0f0b24]/95 backdrop-blur-md rounded-full p-2 flex justify-around items-center z-50 border border-[#8b5cf6]/25 shadow-[0_0_20px_rgba(139,92,246,0.15)] select-none">
+            {/* HOME TAB (LOCKED) */}
             <div
-              onClick={() => handleTabChange("main")}
-              className={`flex flex-col items-center justify-center cursor-pointer transition-all group ${activeTab === "main" ? "text-[#c084fc]" : "text-gray-400 hover:text-white"
-                }`}
+              onClick={() => handleLockedFeature("Home Game")}
+              className="flex flex-col items-center justify-center cursor-not-allowed opacity-35 transition-all group"
+              title="Locked until Mainnet"
             >
-              <div className="w-5 h-5 flex items-center justify-center">
+              <div className="w-5 h-5 flex items-center justify-center grayscale">
                 <img
                   src={logo}
                   alt="Home"
-                  className={`w-5 h-5 object-contain rounded-full group-hover:scale-110 transition-transform ${activeTab === "main" ? "drop-shadow-[0_0_8px_#8b5cf6]" : "opacity-70 group-hover:opacity-100"
-                    }`}
+                  className="w-5 h-5 object-contain rounded-full opacity-60"
                 />
               </div>
-              <span className="text-[9px] font-black uppercase tracking-tight mt-1">HOME</span>
+              <div className="flex items-center space-x-0.5 mt-1">
+                <span className="text-[7px] text-gray-500">🔒</span>
+                <span className="text-[8px] font-black uppercase tracking-tight text-gray-500">HOME</span>
+              </div>
             </div>
 
-            {/* DOCS TAB */}
+            {/* DOCS TAB (LOCKED) */}
             <div
-              onClick={() => setActiveModal("docs")}
-              className={`flex flex-col items-center justify-center cursor-pointer transition-all group ${activeModal === "docs" ? "text-[#00d2ff]" : "text-gray-400 hover:text-[#00d2ff]"
-                }`}
+              onClick={() => handleLockedFeature("Docs")}
+              className="flex flex-col items-center justify-center cursor-not-allowed opacity-35 transition-all group"
+              title="Locked until Mainnet"
             >
-              <BookIcon size={20} className="group-hover:scale-110 transition-transform" />
-              <span className="text-[9px] font-black uppercase tracking-tight mt-1">DOCS</span>
+              <BookIcon size={18} className="text-gray-500" />
+              <div className="flex items-center space-x-0.5 mt-1">
+                <span className="text-[7px] text-gray-500">🔒</span>
+                <span className="text-[8px] font-black uppercase tracking-tight text-gray-500">DOCS</span>
+              </div>
             </div>
 
-            {/* RANKING TAB */}
+            {/* RANKING TAB (LOCKED) */}
             <div
-              onClick={() => handleTabChange("leaderboard")}
-              className={`flex flex-col items-center justify-center cursor-pointer transition-all group ${activeTab === "leaderboard" ? "text-[#c084fc]" : "text-gray-400 hover:text-white"
-                }`}
+              onClick={() => handleLockedFeature("Ranking")}
+              className="flex flex-col items-center justify-center cursor-not-allowed opacity-35 transition-all group"
+              title="Locked until Mainnet"
             >
-              <RankingIcon size={20} className="group-hover:scale-110 transition-transform" />
-              <span className="text-[9px] font-black uppercase tracking-tight mt-1">RANKING</span>
+              <RankingIcon size={18} className="text-gray-500" />
+              <div className="flex items-center space-x-0.5 mt-1">
+                <span className="text-[7px] text-gray-500">🔒</span>
+                <span className="text-[8px] font-black uppercase tracking-tight text-gray-500">RANK</span>
+              </div>
             </div>
 
-            {/* REFS TAB */}
+            {/* REFS TAB (LOCKED) */}
             <div
-              onClick={() => handleTabChange("referral")}
-              className={`flex flex-col items-center justify-center cursor-pointer transition-all group ${activeTab === "referral" ? "text-[#c084fc]" : "text-gray-400 hover:text-white"
-                }`}
+              onClick={() => handleLockedFeature("Referrals")}
+              className="flex flex-col items-center justify-center cursor-not-allowed opacity-35 transition-all group"
+              title="Locked until Mainnet"
             >
-              <Friends size={20} className="group-hover:scale-110 transition-transform" />
-              <span className="text-[9px] font-black uppercase tracking-tight mt-1">REFS</span>
+              <Friends size={18} className="text-gray-500" />
+              <div className="flex items-center space-x-0.5 mt-1">
+                <span className="text-[7px] text-gray-500">🔒</span>
+                <span className="text-[8px] font-black uppercase tracking-tight text-gray-500">REFS</span>
+              </div>
             </div>
 
-            {/* MINT NFT TAB */}
+            {/* MINT NFT TAB (LOCKED) */}
             <div
-              onClick={() => setActiveModal("mint")}
-              className={`flex flex-col items-center justify-center cursor-pointer transition-all relative group ${activeModal === "mint" ? "text-[#ffe600]" : "text-gray-400 hover:text-[#ffe600]"
-                }`}
+              onClick={() => handleLockedFeature("Mint NFT")}
+              className="flex flex-col items-center justify-center cursor-not-allowed opacity-35 transition-all group"
+              title="Locked until Mainnet"
             >
-              <span className="absolute -top-1 right-1 w-2 h-2 rounded-full bg-[#ffe600] animate-ping"></span>
-              <NftIcon size={20} className="group-hover:scale-110 transition-transform" />
-              <div className="flex items-center space-x-1 mt-0.5">
-                <span className="text-[9px] font-black uppercase tracking-tight">MINT NFT</span>
-                <span
-                  className={`text-[6px] font-black px-1 rounded border ${activeModal === "mint"
-                    ? "bg-[#ffe600]/20 text-[#ffe600] border-[#ffe600]/50"
-                    : "bg-white/5 text-gray-400 border-white/20"
-                    }`}
-                >
-                  DEMO
-                </span>
+              <NftIcon size={18} className="text-gray-500" />
+              <div className="flex items-center space-x-0.5 mt-1">
+                <span className="text-[7px] text-gray-500">🔒</span>
+                <span className="text-[8px] font-black uppercase tracking-tight text-gray-500">MINT</span>
               </div>
             </div>
           </div>

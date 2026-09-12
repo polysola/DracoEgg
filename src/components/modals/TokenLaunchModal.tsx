@@ -197,12 +197,17 @@ const TokenLaunchModal: React.FC<TokenLaunchModalProps> = ({
           </button>
         </div>
 
-        {/* Enter ArcDraco Game Button */}
+        {/* Proceed to Whitelist Button */}
         <button
-          onClick={onClose}
+          onClick={() => {
+            onClose();
+            if (onNavigateToWhitelist) {
+              onNavigateToWhitelist();
+            }
+          }}
           className="w-full py-3.5 rounded-2xl bg-gradient-to-r from-[#8b5cf6] via-[#a855f7] to-[#00d2ff] text-white font-black text-sm uppercase tracking-wider shadow-[0_0_30px_rgba(168,85,247,0.6)] hover:shadow-[0_0_40px_rgba(0,210,255,0.7)] transition-all cursor-pointer active:scale-98"
         >
-          🐉 Enter ArcDraco Game
+          ✍️ Proceed to Whitelist
         </button>
 
       </div>
