@@ -383,7 +383,7 @@ const WhitelistPage: React.FC<WhitelistPageProps> = ({
                   <span>Retweet Pinned Post</span>
                 </label>
                 <a
-                  href={X_OFFICIAL_URL}
+                  href="https://x.com/ArcDracoEgg/status/2099346233177616497"
                   target="_blank"
                   rel="noreferrer"
                   className="px-2 py-0.5 rounded-md bg-[#8b5cf6]/20 hover:bg-[#8b5cf6] text-[#c084fc] hover:text-white border border-[#8b5cf6]/40 text-[9px] font-bold uppercase transition-all"
@@ -430,9 +430,8 @@ const WhitelistPage: React.FC<WhitelistPageProps> = ({
             <button
               type="submit"
               disabled={isSubmitting}
-              className={`w-full py-3.5 rounded-2xl bg-gradient-to-r from-[#8b5cf6] via-[#a855f7] to-[#00d2ff] text-white font-black text-xs uppercase tracking-wider shadow-[0_0_25px_rgba(168,85,247,0.5)] transition-all cursor-pointer ${
-                isSubmitting ? "opacity-60 cursor-not-allowed" : "hover:opacity-90 active:scale-[0.99]"
-              }`}
+              className={`w-full py-3.5 rounded-2xl bg-gradient-to-r from-[#8b5cf6] via-[#a855f7] to-[#00d2ff] text-white font-black text-xs uppercase tracking-wider shadow-[0_0_25px_rgba(168,85,247,0.5)] transition-all cursor-pointer ${isSubmitting ? "opacity-60 cursor-not-allowed" : "hover:opacity-90 active:scale-[0.99]"
+                }`}
             >
               {isSubmitting ? "Submitting Application..." : "🚀 Submit Whitelist Application"}
             </button>
